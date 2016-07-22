@@ -13,6 +13,19 @@ public class Car {
 	private String type;
 	private String carNumber;
 	/**
+	 * @param carId
+	 * @param makeId
+	 * @param type
+	 * @param carNumber
+	 */
+	public Car(String carId, String makeId, String type, String carNumber) {
+		super();
+		this.carId = carId;
+		this.makeId = makeId;
+		this.type = type;
+		this.carNumber = carNumber;
+	}
+	/**
 	 * @return the carId
 	 */
 	public String getCarId() {

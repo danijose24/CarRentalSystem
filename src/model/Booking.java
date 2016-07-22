@@ -17,12 +17,33 @@ public class Booking {
 	private Date pickupDate;
 	private Date dropDate;
 	private int amount;
+	
+	/**
+	 * @param bookingId
+	 * @param id
+	 * @param userId
+	 * @param carId
+	 * @param pickupDate
+	 * @param dropDate
+	 * @param amount
+	 */
+	public Booking(int bookingId, int id, String userId, String carId, Date pickupDate, Date dropDate, int amount) {
+		super();
+		this.bookingId = bookingId;
+		this.id = id;
+		this.userId = userId;
+		this.carId = carId;
+		this.pickupDate = pickupDate;
+		this.dropDate = dropDate;
+		this.amount = amount;
+	}
 	/**
 	 * @return the bookingId
 	 */
-	public int getBookingId() {
-		return bookingId;
-	}
+	
+	 public int getBookingId() {
+	     return bookingId;
+	 }
 	/**
 	 * @param bookingId the bookingId to set
 	 */

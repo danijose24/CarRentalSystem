@@ -12,12 +12,18 @@ public class Make {
 	private String name;
 	private int rate;
 	
+	/**
+	 * @param makeId
+	 * @param name
+	 * @param rate
+	 */
 	public Make(String makeId, String name, int rate) {
 		super();
 		this.makeId = makeId;
 		this.name = name;
 		this.rate = rate;
 	}
+
 	/**
 	 * @return the makeId
 	 */
