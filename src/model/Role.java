@@ -27,4 +27,8 @@ public class Role {
     public String getName() {
     	return name;
     }
+    
+    public String toString() {
+    	return "Role Id:"+getRoleId()+"Name:"+getName();
+    }
 }
