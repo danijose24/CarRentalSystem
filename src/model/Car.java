@@ -13,28 +13,27 @@ public class Car {
 	private String carType;
 	private String carNumber;
 	/**
-	 * @param carId
+	 * @param id
 	 * @param makeId
-	 * @param type
+	 * @param carType
 	 * @param carNumber
 	 */
 	public Car(String id, String makeId, String carType, String carNumber) {
-		super();
 		this.id = id;
 		this.makeId = makeId;
 		this.carType = carType;
 		this.carNumber = carNumber;
 	}
 	/**
-	 * @return the carId
+	 * @return the id
 	 */
 	public String getId() {
 		return id;
 	}
 	/**
-	 * @param carId the carId to set
+	 * @param id the id to set
 	 */
-	public void setid(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	/**
@@ -50,16 +49,16 @@ public class Car {
 		this.makeId = makeId;
 	}
 	/**
-	 * @return the type
+	 * @return the carType
 	 */
 	public String getCarType() {
 		return carType;
 	}
 	/**
-	 * @param type the type to set
+	 * @param carType the carType to set
 	 */
-	public void setCarType(String CarType) {
-		this.carType = CarType;
+	public void setCarType(String carType) {
+		this.carType = carType;
 	}
 	/**
 	 * @return the carNumber
@@ -72,6 +71,5 @@ public class Car {
 	 */
 	public void setCarNumber(String carNumber) {
 		this.carNumber = carNumber;
-	}	
-
+	}
 }

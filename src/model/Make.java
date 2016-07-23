@@ -11,31 +11,26 @@ public class Make {
 	private String id;
 	private String name;
 	private int rate;
-	
 	/**
-	 * @param makeId
+	 * @param id
 	 * @param name
 	 * @param rate
 	 */
 	public Make(String id, String name, int rate) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.rate = rate;
 	}
-
 	/**
-	 * @return the makeId
+	 * @return the id
 	 */
-	
 	public String getId() {
 		return id;
 	}
-	
 	/**
-	 * @param makeId the makeId to set
+	 * @param id the id to set
 	 */
-	public void setid(String id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	/**
@@ -62,7 +57,4 @@ public class Make {
 	public void setRate(int rate) {
 		this.rate = rate;
 	}
-	
-	
-
 }

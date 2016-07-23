@@ -16,7 +16,6 @@ public class Booking {
 	private Date pickupDate;
 	private Date dropDate;
 	private int amount;
-	
 	/**
 	 * @param id
 	 * @param userId
@@ -25,9 +24,9 @@ public class Booking {
 	 * @param dropDate
 	 * @param amount
 	 */
-	public Booking(int id, String userId, String carId, Date pickupDate, Date dropDate, int amount) {
-		super();
-		this.id = id;
+	public Booking(int id, String userId, String carId, Date pickupDate,
+			Date dropDate, int amount) {
+    	this.id = id;
 		this.userId = userId;
 		this.carId = carId;
 		this.pickupDate = pickupDate;
