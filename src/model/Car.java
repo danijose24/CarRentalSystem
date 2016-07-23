@@ -8,9 +8,9 @@ package model;
  *
  */
 public class Car {
-	private String carId;
+	private String id;
 	private String makeId;
-	private String type;
+	private String carType;
 	private String carNumber;
 	/**
 	 * @param carId
@@ -18,24 +18,24 @@ public class Car {
 	 * @param type
 	 * @param carNumber
 	 */
-	public Car(String carId, String makeId, String type, String carNumber) {
+	public Car(String id, String makeId, String carType, String carNumber) {
 		super();
-		this.carId = carId;
+		this.id = id;
 		this.makeId = makeId;
-		this.type = type;
+		this.carType = carType;
 		this.carNumber = carNumber;
 	}
 	/**
 	 * @return the carId
 	 */
-	public String getCarId() {
-		return carId;
+	public String getId() {
+		return id;
 	}
 	/**
 	 * @param carId the carId to set
 	 */
-	public void setCarId(String carId) {
-		this.carId = carId;
+	public void setid(String id) {
+		this.id = id;
 	}
 	/**
 	 * @return the makeId
@@ -52,14 +52,14 @@ public class Car {
 	/**
 	 * @return the type
 	 */
-	public String getType() {
-		return type;
+	public String getCarType() {
+		return carType;
 	}
 	/**
 	 * @param type the type to set
 	 */
-	public void setType(String type) {
-		this.type = type;
+	public void setCarType(String CarType) {
+		this.carType = CarType;
 	}
 	/**
 	 * @return the carNumber

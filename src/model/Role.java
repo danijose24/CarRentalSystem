@@ -4,28 +4,28 @@
 package model;
 
 public class Role {
-    private int roleId;
+    private int id;
     private String name;
     /**
 	 * @param roleId
 	 * @param name
 	 */
-	public Role(int roleId, String name) {
+	public Role(int id, String name) {
 		super();
-		this.roleId = roleId;
+		this.id = id;
 		this.name = name;
 	}
 	/**
 	 * @return the roleId
 	 */
-	public int getRoleId() {
-		return roleId;
+	public int getId() {
+		return id;
 	}
 	/**
 	 * @param roleId the roleId to set
 	 */
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setRoleId(int id) {
+		this.id = id;
 	}
 	/**
 	 * @return the name

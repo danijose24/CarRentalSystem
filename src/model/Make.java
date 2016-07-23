@@ -8,7 +8,7 @@ package model;
  *
  */
 public class Make {
-	private String makeId;
+	private String id;
 	private String name;
 	private int rate;
 	
@@ -17,9 +17,9 @@ public class Make {
 	 * @param name
 	 * @param rate
 	 */
-	public Make(String makeId, String name, int rate) {
+	public Make(String id, String name, int rate) {
 		super();
-		this.makeId = makeId;
+		this.id = id;
 		this.name = name;
 		this.rate = rate;
 	}
@@ -28,15 +28,15 @@ public class Make {
 	 * @return the makeId
 	 */
 	
-	public String getMakeId() {
-		return makeId;
+	public String getId() {
+		return id;
 	}
 	
 	/**
 	 * @param makeId the makeId to set
 	 */
-	public void setMakeId(String makeId) {
-		this.makeId = makeId;
+	public void setid(String id) {
+		this.id = id;
 	}
 	/**
 	 * @return the name

@@ -1,7 +1,7 @@
 package model;
 
 public class User {
-    private int userId;
+    private int id;
     private String name;
     private String phone;
     private String email;
@@ -16,9 +16,9 @@ public class User {
 	 * @param password
 	 * @param address
 	 */
-	public User(int userId, String name, String phone, String email, String password, String address) {
+	public User(int id, String name, String phone, String email, String password, String address) {
 		super();
-		this.userId = userId;
+		this.id = id;
 		this.name = name;
 		this.phone = phone;
 		this.email = email;
@@ -28,14 +28,14 @@ public class User {
 	/**
 	 * @return the userId
 	 */
-	public int getUserId() {
-		return userId;
+	public int getId() {
+		return id;
 	}
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setId(int id) {
+		this.id = id;
 	}
 	/**
 	 * @return the name

@@ -10,7 +10,6 @@ import java.util.Date;
  *
  */
 public class Booking {
-	private int bookingId;
 	private int id;
 	private String userId;
 	private String carId;
@@ -19,7 +18,6 @@ public class Booking {
 	private int amount;
 	
 	/**
-	 * @param bookingId
 	 * @param id
 	 * @param userId
 	 * @param carId
@@ -27,28 +25,14 @@ public class Booking {
 	 * @param dropDate
 	 * @param amount
 	 */
-	public Booking(int bookingId, int id, String userId, String carId, Date pickupDate, Date dropDate, int amount) {
+	public Booking(int id, String userId, String carId, Date pickupDate, Date dropDate, int amount) {
 		super();
-		this.bookingId = bookingId;
 		this.id = id;
 		this.userId = userId;
 		this.carId = carId;
 		this.pickupDate = pickupDate;
 		this.dropDate = dropDate;
 		this.amount = amount;
-	}
-	/**
-	 * @return the bookingId
-	 */
-	
-	 public int getBookingId() {
-	     return bookingId;
-	 }
-	/**
-	 * @param bookingId the bookingId to set
-	 */
-	public void setBookingId(int bookingId) {
-		this.bookingId = bookingId;
 	}
 	/**
 	 * @return the id
