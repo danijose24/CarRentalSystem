@@ -1,31 +1,32 @@
 package model;
 
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.HashSet;
 
 public class User {
     private int id;
     private String name;
-    private String phone;
+    private String phoneNumber;
     private String email;
     private String password;
     private String address;
     private Set<Booking> bookings = new HashSet<Booking>();
-    private Set<Role> roles = new HashSet<Role>(); 
+    private Set<Role> roles = new HashSet<Role>();
+
     /**
 	 * @param id
 	 * @param name
-	 * @param phone
+	 * @param phoneNumber
 	 * @param email
 	 * @param password
 	 * @param address
 	 */
-	public User(int id, String name, String phone, String email,
+	public User(int id, String name, String phoneNumber, String email,
 			String password, String address) {
     	this.id = id;
 		this.name = name;
-		this.phone = phone;
+		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
 		this.address = address;
@@ -60,17 +61,17 @@ public class User {
 	}
 
 	/**
-	 * @return the phone
+	 * @return the phoneNumber
 	 */
-	public String getPhone() {
-		return phone;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	/**
-	 * @param phone the phone to set
+	 * @param phoneNumber the phoneNumber to set
 	 */
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	/**
@@ -142,4 +143,5 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+    
 }

@@ -6,7 +6,7 @@ package model;
 import java.util.Date;
 
 /**
- * @author ideas2it
+ * @author sudhakar
  *
  */
 public class Booking {
@@ -18,7 +18,6 @@ public class Booking {
 	private int amount;
 	private User user;
 	private Car car;
-	
 	/**
 	 * @param id
 	 * @param userId
@@ -109,18 +108,6 @@ public class Booking {
 		this.amount = amount;
 	}
 	/**
-	 * @return the car
-	 */
-	public Car getCar() {
-		return car;
-	}
-	/**
-	 * @param car the car to set
-	 */
-	public void setCar(Car car) {
-		this.car = car;
-	}
-	/**
 	 * @return the user
 	 */
 	public User getUser() {
@@ -132,4 +119,17 @@ public class Booking {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	/**
+	 * @return the car
+	 */
+	public Car getCar() {
+		return car;
+	}
+	/**
+	 * @param car the car to set
+	 */
+	public void setCar(Car car) {
+		this.car = car;
+	}
+	
 }

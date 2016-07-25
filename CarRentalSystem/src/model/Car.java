@@ -3,8 +3,11 @@
  */
 package model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
- * @author ideas2it
+ * @author sudhakar
  *
  */
 public class Car {
@@ -12,6 +15,9 @@ public class Car {
 	private String makeId;
 	private String carType;
 	private String carNumber;
+	private Make make;
+    private Set<Booking> bookings = new HashSet<Booking>();
+
 	/**
 	 * @param id
 	 * @param makeId
@@ -71,5 +77,29 @@ public class Car {
 	 */
 	public void setCarNumber(String carNumber) {
 		this.carNumber = carNumber;
+	}
+	/**
+	 * @return the bookings
+	 */
+	public Set<Booking> getBookings() {
+		return bookings;
+	}
+	/**
+	 * @param bookings the bookings to set
+	 */
+	public void setBookings(Set<Booking> bookings) {
+		this.bookings = bookings;
+	}
+	/**
+	 * @return the make
+	 */
+	public Make getMake() {
+		return make;
+	}
+	/**
+	 * @param make the make to set
+	 */
+	public void setMake(Make make) {
+		this.make = make;
 	}
 }
