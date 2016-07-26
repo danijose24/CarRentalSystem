@@ -5,7 +5,7 @@ package model;
 
 import java.util.HashSet;
 import java.util.Set;
-
+import model.Booking;
 /**
  * @author sudhakar
  *
@@ -13,7 +13,7 @@ import java.util.Set;
 public class Car {
 	private String id;
 	private String makeId;
-	private String carType;
+	private int carType;
 	private String carNumber;
 	private Make make;
     private Set<Booking> bookings = new HashSet<Booking>();
@@ -24,7 +24,7 @@ public class Car {
 	 * @param carType
 	 * @param carNumber
 	 */
-	public Car(String id, String makeId, String carType, String carNumber) {
+	public Car(String id, String makeId, int carType, String carNumber) {
 		this.id = id;
 		this.makeId = makeId;
 		this.carType = carType;
@@ -57,13 +57,13 @@ public class Car {
 	/**
 	 * @return the carType
 	 */
-	public String getCarType() {
+	public int getCarType() {
 		return carType;
 	}
 	/**
 	 * @param carType the carType to set
 	 */
-	public void setCarType(String carType) {
+	public void setCarType(int carType) {
 		this.carType = carType;
 	}
 	/**

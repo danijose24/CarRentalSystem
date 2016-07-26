@@ -22,9 +22,8 @@ public class User {
 	 * @param password
 	 * @param address
 	 */
-	public User(int id, String name, String phoneNumber, String email,
+	public User(String name, String phoneNumber, String email,
 			String password, String address) {
-    	this.id = id;
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;

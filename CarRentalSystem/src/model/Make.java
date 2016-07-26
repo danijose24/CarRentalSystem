@@ -5,6 +5,7 @@ package model;
 
 import java.util.HashSet;
 import java.util.Set;
+import model.Car;
 
 /**
  * @author sudhakar

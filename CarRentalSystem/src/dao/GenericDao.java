@@ -8,13 +8,20 @@ import org.hibernate.Session;
 import exception.UserDefinedException;
 
 /**
- * @author sudhakar
+ * <h1>GenericDao</h1>
+ * <p>
+ * The class Generic Dao is the Base class for UserDao, BookingDao, CarDao, MakeDao.
+ * The class Generic Dao is used to get connnection for session fatory.
+ * And this class is used to close the connection.
+ * </p>
  *
+ * @author sudhakar
+ * @version 1.0
+ * @created 25-07-2016
  */
 public class GenericDao {
 	
     protected static SessionFactory sessionFactory; 
-	protected Session session;
 	static {
 		getConnction();
 	}
@@ -36,6 +43,7 @@ public class GenericDao {
     *
     */
     public void openSession() throws UserDefinedException {
+    	Session session = null;
         try {
             if (null != sessionFactory) {
                 session = sessionFactory.openSession();
@@ -49,6 +57,7 @@ public class GenericDao {
     *
     */
     public void closeSession() {
+    	Session session = null;
         try {
             session.close();
         } catch (HibernateException e) {

@@ -11,7 +11,7 @@ import java.util.Date;
  */
 public class Booking {
 	private int id;
-	private String userId;
+	private int userId;
 	private String carId;
 	private Date pickupDate;
 	private Date dropDate;
@@ -26,9 +26,8 @@ public class Booking {
 	 * @param dropDate
 	 * @param amount
 	 */
-	public Booking(int id, String userId, String carId, Date pickupDate,
+	public Booking(int userId, String carId, Date pickupDate,
 			Date dropDate, int amount) {
-    	this.id = id;
 		this.userId = userId;
 		this.carId = carId;
 		this.pickupDate = pickupDate;
@@ -50,13 +49,13 @@ public class Booking {
 	/**
 	 * @return the userId
 	 */
-	public String getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(String userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	/**
