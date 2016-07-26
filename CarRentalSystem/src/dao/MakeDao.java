@@ -35,16 +35,15 @@ public class MakeDao extends GenericDao {
 	 */
 	public void insertMake(Make make) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.save(make);
 	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Make details added Failed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 
@@ -62,16 +61,15 @@ public class MakeDao extends GenericDao {
 	 */
 	public Make findMake(String makeId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    Make make;
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        make = (Make)session.get(Make.class, makeId);
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this Make Id: "+makeId, e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	    return make;
 	}
@@ -90,9 +88,8 @@ public class MakeDao extends GenericDao {
 	 */
 	public boolean deleteMake(String makeId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        Make make = (Make)session.get(Make.class, makeId); 
 	        session.delete(make);
@@ -103,7 +100,7 @@ public class MakeDao extends GenericDao {
 	    } catch (IllegalArgumentException e) {
 	        throw new UserDefinedException("The make Id "+makeId+" is not available", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
  
@@ -118,16 +115,15 @@ public class MakeDao extends GenericDao {
      */
 	public List<Make> retrieveMakeDetails() throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        List<Make> makes = session.createQuery("FROM Make").list();
 	        return makes;
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Make details can not be Displayed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
     }
 
@@ -145,9 +141,8 @@ public class MakeDao extends GenericDao {
 	 */
 	public boolean updateMake(Make make) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.update(make); 
 	        transaction.commit();
@@ -155,7 +150,7 @@ public class MakeDao extends GenericDao {
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to update for this make", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 }

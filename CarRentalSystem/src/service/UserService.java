@@ -18,6 +18,7 @@ import exception.UserDefinedException;
  */
 public class UserService {
     UserDao userDao = new UserDao();
+
     /**
 	 * <p>
 	 * The add user method is used to add user details to the database,

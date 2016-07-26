@@ -37,16 +37,15 @@ public class BookingDao extends GenericDao {
 	 */
 	public void insertBooking(Booking booking) throws UserDefinedException {
 	    Transaction transaction = null;
-		Session session = null;
+		Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.save(booking);
 	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Booking details added Failed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 
@@ -64,16 +63,15 @@ public class BookingDao extends GenericDao {
 	 */
 	public Booking findBooking(int bookingId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    Booking booking;
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        booking = (Booking)session.get(Booking.class, bookingId);
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this booking Id: "+bookingId, e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	    return booking;
 	}
@@ -92,9 +90,8 @@ public class BookingDao extends GenericDao {
 	 */
 	public boolean deleteBooking(int bookingId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        Booking booking = (Booking)session.get(Booking.class, bookingId); 
 	        session.delete(booking);
@@ -105,7 +102,7 @@ public class BookingDao extends GenericDao {
 	    } catch (IllegalArgumentException e) {
 	        throw new UserDefinedException("The booking Id "+bookingId+" is not available", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
  
@@ -120,16 +117,15 @@ public class BookingDao extends GenericDao {
      */
 	public List<Booking> retrieveBookingDetails() throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        List<Booking> bookings = session.createQuery("FROM Booking").list();
 	        return bookings;
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Booking details can not be Displayed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
     }
 
@@ -147,9 +143,8 @@ public class BookingDao extends GenericDao {
 	 */
 	public boolean updateBooking(Booking booking) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.update(booking); 
 	        transaction.commit();
@@ -157,7 +152,7 @@ public class BookingDao extends GenericDao {
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Could not update for this booking", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 	
@@ -174,9 +169,8 @@ public class BookingDao extends GenericDao {
 	 */
 	public void allocateUserToBookings(Booking booking, User user) throws UserDefinedException {
 		Transaction transaction = null;
-		Session session = null;
+		Session session = openSession();
         try {
-            openSession();
             transaction = session.beginTransaction();
             booking.setUser(user);
             session.update(booking);
@@ -184,7 +178,7 @@ public class BookingDao extends GenericDao {
         } catch (HibernateException e) {
             throw new UserDefinedException("User could not assign for this Booking", e);
         } finally {
-            closeSession();
+            closeSession(session);
         }
 	}
 	
@@ -201,9 +195,8 @@ public class BookingDao extends GenericDao {
 	 */
 	public void allocateCarToBookings(Booking booking, Car car) throws UserDefinedException {
 		Transaction transaction = null;
-		Session session = null;
+		Session session = openSession();
         try {
-            openSession();
             transaction = session.beginTransaction();
             booking.setCar(car);
             session.update(booking);
@@ -211,7 +204,7 @@ public class BookingDao extends GenericDao {
         } catch (HibernateException e) {
             throw new UserDefinedException("Car could not assign for this Booking", e);
         } finally {
-            closeSession();
+            closeSession(session);
         }
 	}
 }

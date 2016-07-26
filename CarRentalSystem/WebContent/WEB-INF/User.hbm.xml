@@ -18,15 +18,15 @@
       <property name="address" column="address" type="string"/>
       
       <set name="Booking" table="Booking" inverse="true" lazy="false" fetch="select">
-            <key>
-                <column name="bookingId" not-null="true" />
-            </key>
-            <one-to-many class="model.Booking" />
+          <key>
+              <column name="bookingId" not-null="true" />
+          </key>
+          <one-to-many class="model.Booking" />
       </set>
         
-        <set name="roles" table="UserRole" cascade="all">
-            <key column="userId" />
-            <many-to-many column="roleId"  class="model.Role" />
-        </set>
+      <set name="roles" table="UserRole" cascade="all">
+          <key column="userId" />
+              <many-to-many column="roleId"  class="model.Role" />
+      </set>
   </class>
  </hibernate-mapping>

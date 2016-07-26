@@ -42,11 +42,12 @@ public class GenericDao {
     * The method open session is used to open the session.
     *
     */
-    public void openSession() throws UserDefinedException {
-    	Session session = null;
+    public Session openSession() throws UserDefinedException {
         try {
             if (null != sessionFactory) {
-                session = sessionFactory.openSession();
+                return sessionFactory.openSession();
+            } else {
+                throw new UserDefinedException("Failed to open the session factory");
             }
         } catch (HibernateException e) {
             throw new UserDefinedException("Failed to open the session factory", e);
@@ -56,8 +57,7 @@ public class GenericDao {
     * The method close session is used to close the session.
     *
     */
-    public void closeSession() {
-    	Session session = null;
+    public void closeSession(Session session) {
         try {
             session.close();
         } catch (HibernateException e) {

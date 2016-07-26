@@ -34,16 +34,15 @@ public class UserDao extends GenericDao {
 	 */
 	public void insertUser(User user) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.save(user);
 	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("User details added Failed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 
@@ -61,16 +60,15 @@ public class UserDao extends GenericDao {
 	 */
 	public User findUser(int userId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    User user;
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        user = (User)session.get(User.class, userId);
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this user Id: "+userId, e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	    return user;
 	}
@@ -89,9 +87,8 @@ public class UserDao extends GenericDao {
 	 */
 	public boolean deleteUser(int userId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        User user = (User)session.get(User.class, userId); 
 	        session.delete(user);
@@ -102,7 +99,7 @@ public class UserDao extends GenericDao {
 	    } catch (IllegalArgumentException e) {
 	        throw new UserDefinedException("The user Id "+userId+" is not available", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
  
@@ -117,16 +114,15 @@ public class UserDao extends GenericDao {
      */
 	public List<User> retrieveUserDetails() throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        List<User> users = session.createQuery("FROM User").list();
 	        return users;
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("User details can not be Displayed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
     }
 
@@ -144,9 +140,8 @@ public class UserDao extends GenericDao {
 	 */
 	public boolean updateUser(User user) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.update(user); 
 	        transaction.commit();
@@ -154,7 +149,7 @@ public class UserDao extends GenericDao {
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Could not update for this user", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 }

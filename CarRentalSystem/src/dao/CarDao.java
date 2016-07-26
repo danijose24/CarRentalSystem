@@ -34,16 +34,15 @@ public class CarDao extends GenericDao {
 	 */
 	public void insertCar(Car car) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.save(car);
 	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Car details added Failed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 
@@ -61,16 +60,15 @@ public class CarDao extends GenericDao {
 	 */
 	public Car findCar(String carId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    Car car;
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        car = (Car)session.get(Car.class, carId);
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this car Id: "+carId, e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	    return car;
 	}
@@ -89,9 +87,8 @@ public class CarDao extends GenericDao {
 	 */
 	public boolean deleteCar(int carId) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        Car car = (Car)session.get(Car.class, carId); 
 	        session.delete(car);
@@ -102,7 +99,7 @@ public class CarDao extends GenericDao {
 	    } catch (IllegalArgumentException e) {
 	        throw new UserDefinedException("The car Id "+carId+" is not available", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
  
@@ -117,16 +114,15 @@ public class CarDao extends GenericDao {
      */
 	public List<Car> retrieveCarDetails() throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        List<Car> cars = session.createQuery("FROM Car").list();
 	        return cars;
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Car details can not be Displayed!...",e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
     }
 
@@ -144,9 +140,8 @@ public class CarDao extends GenericDao {
 	 */
 	public boolean updateCar(Car car) throws UserDefinedException {
 	    Transaction transaction = null;
-	    Session session = null;
+	    Session session = openSession();
 	    try {
-	        openSession();
 	        transaction = session.beginTransaction();
 	        session.update(car); 
 	        transaction.commit();
@@ -154,7 +149,7 @@ public class CarDao extends GenericDao {
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to update for this car", e);
 	    } finally {
-	        closeSession();
+	        closeSession(session);
 	    }
 	}
 	
@@ -171,9 +166,8 @@ public class CarDao extends GenericDao {
 	 */
 	public void allocateMakeToCars(Car car, Make make) throws UserDefinedException {
 		Transaction transaction = null;
-		Session session = null;
+		Session session = openSession();
         try {
-            openSession();
             transaction = session.beginTransaction();
             car.setMake(make);
             session.update(car);
@@ -181,7 +175,7 @@ public class CarDao extends GenericDao {
         } catch (HibernateException e) {
             throw new UserDefinedException("Make could not assign for this car", e);
         } finally {
-            closeSession();
+            closeSession(session);
         }
 	}
 }
