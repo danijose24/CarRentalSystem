@@ -11,7 +11,7 @@
          <id name="id" type="int" column="id">
              <generator class="native"/>
          </id> 
-         <property name="name" column="name" type="String"/>
+         <property name="name" column="name" type="string"/>
         
                
      </class>

@@ -28,8 +28,6 @@ public class CarService {
 	 * </p>
 	 * @param id         
 	 *         id should be in string.
-	 * @param makeId
-	 *         makeId should be in string.
 	 * @param carType
 	 *         carType should be in int.
 	 * @param carNumber
@@ -37,8 +35,8 @@ public class CarService {
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */
-	public void addCar(String id, String makeId, int carType, String carNumber) throws UserDefinedException {
-		    Car car = new Car(id, makeId, carType, carNumber);
+	public void addCar(String id, int carType, String carNumber) throws UserDefinedException {
+		    Car car = new Car(id, carType, carNumber);
 		    carDao.insertCar(car);
 	}
 
@@ -100,9 +98,8 @@ public class CarService {
 	 * @throws UserDefinedException 
 	 *         if there is failed in updating car details.                        
 	 */
-	 public boolean updateCarById(String carId,String makeId, int carType, String carNumber) throws UserDefinedException {
+	 public boolean updateCarById(String carId, int carType, String carNumber) throws UserDefinedException {
 	     Car car = findCarById(carId);
-	     car.setMakeId(makeId);
 	     car.setCarType(carType);
 	     car.setCarNumber(carNumber);
 	     return carDao.updateCar(car);

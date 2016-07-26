@@ -11,16 +11,14 @@
         <id name="id" type="int" column="id">
             <generator class="increment"/>
         </id>
-        <property name="userId" column="userId" type="int"/>
-        <property name="carId" column="carId" type="string"/>
         <property name="pickupDate" column="pickupDate" type="date"/>
         <property name="dropDate" column="dropDate" type="date"/>
         <property name="amount" column="amount" type="int"/>
         <many-to-one name="user" class="model.User" lazy="false" fetch="select">
-            <column name="id" not-null="false"/>
+            <column name="userId" not-null="false"/>
         </many-to-one>
         <many-to-one name="car" class="model.Car" lazy="false" fetch="select">
-            <column name="id" not-null="false"/>
+            <column name="carId" not-null="false"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

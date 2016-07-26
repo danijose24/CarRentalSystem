@@ -12,7 +12,6 @@ import model.Booking;
  */
 public class Car {
 	private String id;
-	private String makeId;
 	private int carType;
 	private String carNumber;
 	private Make make;
@@ -24,9 +23,8 @@ public class Car {
 	 * @param carType
 	 * @param carNumber
 	 */
-	public Car(String id, String makeId, int carType, String carNumber) {
+	public Car(String id, int carType, String carNumber) {
 		this.id = id;
-		this.makeId = makeId;
 		this.carType = carType;
 		this.carNumber = carNumber;
 	}
@@ -42,18 +40,7 @@ public class Car {
 	public void setId(String id) {
 		this.id = id;
 	}
-	/**
-	 * @return the makeId
-	 */
-	public String getMakeId() {
-		return makeId;
-	}
-	/**
-	 * @param makeId the makeId to set
-	 */
-	public void setMakeId(String makeId) {
-		this.makeId = makeId;
-	}
+
 	/**
 	 * @return the carType
 	 */

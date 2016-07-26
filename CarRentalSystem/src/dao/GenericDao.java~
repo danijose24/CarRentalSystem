@@ -36,7 +36,7 @@ public class GenericDao {
             System.out.println(sessionFactory);
         } catch (HibernateException ex) { 
             System.out.println("Failed to Create SessionFactory object." + ex);
-            ex.printStackTrace(); 
+            System.out.println(ex.printStackTrace()); 
         }
     }
     /**

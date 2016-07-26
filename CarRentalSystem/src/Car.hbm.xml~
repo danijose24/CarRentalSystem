@@ -6,23 +6,21 @@
  <hibernate-mapping>
     <class name="model.Car" table="Car">
       <meta attribute="class-description">
-         This class contains the employee detail. 
+         This class contains the Car detail. 
       </meta>
-      <id name="id" type="string" column="id"></id>
-      <property name="makeId" column="makeId" type="string"/>
-      <property name="carType" column="phoneNumber" type="int"/>
+      <id name="id" column="id" type="string"></id>
+      <property name="carType" column="carType" type="int"/>
       <property name="carNumber" column="carNumber" type="string"/>
           
-      <set name="Booking" table="Booking" inverse="true" lazy="false" fetch="select">
+      <set name="bookings" table="Booking" inverse="true" lazy="false" fetch="select">
             <key>
-                <column name="bookingId" not-null="true" />
+                <column name="id" not-null="false"/>
             </key>
-            <one-to-many class="model.Booking" />
+            <one-to-many class="model.Booking"/>
       </set>
-      
+
       <many-to-one name="make" class="model.Make" fetch="select">
-            <column name="makeId" not-null="true" />
+            <column name="makeId" not-null="true"/>
       </many-to-one>
-        
   </class>
  </hibernate-mapping>

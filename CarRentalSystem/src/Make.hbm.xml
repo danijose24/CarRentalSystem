@@ -8,7 +8,7 @@
         <meta attribute="class-description">
         This class contains the Make detail.
         </meta>
-        <id name="id" type="String" column="id"></id>
+        <id name="id" type="string" column="id"></id>
         <property name="name" column="name" type="string"/>
         <property name="rate" column="rate" type="int"/>
         
@@ -17,7 +17,7 @@
             <key>
                 <column name="id" not-null="true" />
             </key>
-            <one-to-many class="Car"/>
+            <one-to-many class="model.Car"/>
         </set>
     </class>
 </hibernate-mapping>

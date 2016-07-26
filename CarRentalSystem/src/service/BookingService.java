@@ -28,10 +28,7 @@ public class BookingService {
 	 * here we create an object for booking using Booking model.
 	 * booking Object is passed as a parameter to BookingDao class to insert into the database.
 	 * </p>
-	 * @param userId         
-	 *         userId should be in int.
-	 * @param carId
-	 *         carId should be in String.
+	 * 
      * @param pickupDate
 	 *         pickupDate should be in Date.
 	 * @param dropDate
@@ -41,9 +38,9 @@ public class BookingService {
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */
-    public void addBooking(int userId, String carId, Date pickupDate,
+    public void addBooking(Date pickupDate,
 			Date dropDate, int amount) throws UserDefinedException {
-	    Booking booking = new Booking(userId, carId, pickupDate, dropDate, amount);
+	    Booking booking = new Booking(pickupDate, dropDate, amount);
 	    bookingDao.insertBooking(booking);
 	}
 
@@ -93,10 +90,6 @@ public class BookingService {
 	  * </p>
 	  * @param bookingId
 	  *         used to find booking
-	  * @param userId         
-	  *         userId should be in int.
-	  * @param carId
-	  *         carId should be in String.
 	  * @param pickupDate
 	  *         pickupDate should be in Date.
 	  * @param dropDate
@@ -108,11 +101,9 @@ public class BookingService {
 	  * @throws UserDefinedException 
 	  *         If there is failed in updating booking details.                        
 	  */
-	 public boolean updateBookingById(int bookingId, int userId, String carId, Date pickupDate,
+	 public boolean updateBookingById(int bookingId, Date pickupDate,
 				Date dropDate, int amount) throws UserDefinedException {
 	     Booking booking = findBookingById(bookingId);
-	     booking.setUserId(userId);
-	     booking.setCarId(carId);
 	     booking.setPickupDate(pickupDate);
 	     booking.setDropDate(dropDate);
 	     booking.setAmount(amount);
