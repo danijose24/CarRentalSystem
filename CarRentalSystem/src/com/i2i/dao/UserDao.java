@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Repository;
 
 import com.i2i.model.User;
 import com.i2i.exception.UserDefinedException;
@@ -22,6 +23,7 @@ import com.i2i.exception.UserDefinedException;
  * @version 1.0
  * @created 25-07-2016
  */
+@Repository("userDao")
 public class UserDao extends GenericDao {
 
 	/**

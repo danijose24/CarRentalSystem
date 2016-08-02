@@ -8,7 +8,9 @@
         <meta attribute="class-description">
         This class contains the Make detail.
         </meta>
-        <id name="id" type="string" column="id"></id>
+        <id name="id" type="int" column="id">
+            <generator class="increment"/>
+        </id>
         <property name="name" column="name" type="string"/>
         <property name="rate" column="rate" type="int"/>
         

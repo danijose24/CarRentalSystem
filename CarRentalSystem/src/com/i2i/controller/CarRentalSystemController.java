@@ -4,11 +4,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.i2i.model.Car;
@@ -23,35 +25,41 @@ import com.i2i.exception.UserDefinedException;
 
 @Controller
 public class CarRentalSystemController {
-	UserService userService = new UserService();
-	BookingService bookingService = new BookingService();
+	
+	@Autowired
+	UserService userService;
+	
+	@Autowired
+	BookingService bookingService;
+	
 	@RequestMapping("/signUp")
 	public ModelAndView getRegisterForm() {
-		System.out.println("Register Form");
+		System.out.println("entering into sign up");
 		return new ModelAndView("Register");
 	}
 	
 	
+	
 	@RequestMapping("/admin")
 	public ModelAndView getAdminForm() {
-		System.out.println("Login controller");
+		System.out.println("entering into admin");
 		return new ModelAndView("AdminLogin");
 	}
 	
 	@RequestMapping("/adminform")
 	public ModelAndView getAdmin() {
-		System.out.println("Login controller");
+		System.out.println("entering into  admin form");
 		return new ModelAndView("Admin");
 	}
 	@RequestMapping("/mainHome")
 	public ModelAndView getHomeForm() {
-		System.out.println("Login controller");
+		System.out.println("entering into home page");
 		return new ModelAndView("HomePage");
 	}
 	
 	@RequestMapping("/logIn")
 	public ModelAndView getLoginForm() {
-		System.out.println("Login controller");
+		System.out.println("entering into Login");
 		return new ModelAndView("Login");
 	}
 	
@@ -63,15 +71,15 @@ public class CarRentalSystemController {
 	
 	@RequestMapping("/addCar")
 	public ModelAndView getCarAddForm() {
-		System.out.println("Add CAR Controller");
+		System.out.println("entering into add car");
 		return new ModelAndView("NewCarAdd");
 	}
 	
 	
 	@RequestMapping("/addMake")
 	public ModelAndView getMakeAddForm() {
-		System.out.println("Add CAR Controller");
-		return new ModelAndView("NewMakeAdd");
+		System.out.println("entering into add make");
+		return new ModelAndView("AddNewMake");
 	}
 	
 	
@@ -79,8 +87,7 @@ public class CarRentalSystemController {
 	/*
 	 * controller for add a new Bookking
 	 */
-	@RequestMapping("/bookingSucess")
-	
+	@RequestMapping("/bookingSuccess")	
 	public ModelAndView getBookingCarForm(@ModelAttribute("booking") Booking booking,BindingResult result) {
 		try {
 			System.out.println("get Booking Car controller");
@@ -110,6 +117,8 @@ public class CarRentalSystemController {
 			BindingResult result) {
 		try {
 			System.out.println("Entering  Save User controller");
+            java.sql.Time createdAt = new java.sql.Time(new java.util.Date().getTime());
+            user.setCreatedAt(createdAt);
 		    userService.addUser(user);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
@@ -118,6 +127,8 @@ public class CarRentalSystemController {
 		return new ModelAndView("Login");
 	}
 	
+	@Autowired
+    CarService carService;
 	/*
 	 * controller to create a new car
 	 */
@@ -125,7 +136,7 @@ public class CarRentalSystemController {
 	public ModelAndView addNewCar(@ModelAttribute("car") Car car,BindingResult result) {
 		try {
 		    System.out.println("Enter in to Save new Car");
-		    CarService carService = new CarService();
+		    
 		    carService.addCar(car);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
@@ -133,13 +144,13 @@ public class CarRentalSystemController {
 		return new ModelAndView("Admin");
 		
 	}
-	
+	@Autowired
+    MakeService makeService ;
 	
 	@RequestMapping("/carMakeResult")
 	public ModelAndView addNewCar(@ModelAttribute("make") Make make,BindingResult result) {
 		try {
 		    System.out.println("Enter in to MAKEnew Car");
-		    MakeService makeService = new MakeService();
 		    makeService.addMake(make);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
@@ -153,9 +164,10 @@ public class CarRentalSystemController {
 	public ModelAndView getUserList() {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			CarService carService = new CarService();
+			System.out.println("entering into car list");
 		    model.put("car", carService.totalCarsDetails());
 		} catch(UserDefinedException e) {
+			e.printStackTrace();
 			System.out.println(e);
 		}
 		return new ModelAndView("AvailableCars", model);
@@ -192,5 +204,4 @@ public class CarRentalSystemController {
 	    }
 		return null;
 	}
-	
 }

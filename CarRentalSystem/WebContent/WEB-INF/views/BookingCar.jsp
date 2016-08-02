@@ -24,7 +24,6 @@
 	  </div><!--close banner-->	
 	</header>
 	
-	<nav>
 	  <div id="menubar">
         <ul id="nav">
           <li><a href="mainHome.html">Home</a></li>
@@ -35,7 +34,6 @@
           
         </ul>
       </div><!--close menubar-->	
-    </nav>	
     
 	<div id="site_content">		
 
@@ -69,7 +67,7 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmailcom</a></p>
+            <p>Email: quickCars@gmailcom</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	
@@ -77,32 +75,25 @@
 	  <div id="content">
         <div class="content_item">
 		  <h1>Book A Car</h1> 
-            <form action="bookingSucess.html" modelAttribute="booking" method="post">
+            <form action="bookingSuccess.html" modelAttribute="booking" method="post">
         <center><h1> Happy To Help You </h1></center>
         <center><h2>Place your Booking Here</h2></center>
        <center>
-       <table>
-                      
+       <table>             
            <tr>
                <td><h3 style="color:silver"> Pick Date</h3></td>
                <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="pickupDate"><br><br></td>
-           </tr>
-          
+           </tr>         
            <tr>
-               <td><h3 style="color:silver">Drop Date</td>
+               <td><h3 style="color:silver">Drop Date</h3></td>
                <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="dropDate"><br><br></td>
-           </tr>
-           
-         
+           </tr>        
            <tr>
                <td colspan="2"> <input class="submit" type="submit" value="Confirm Booking"></td>
            </tr>
         </table>
         </center>
-                    
-       
-        </table>
-        </center>
+    
     </form>
 
 		  </div><!--close content-->   
@@ -119,7 +110,7 @@
   <!-- javascript at the bottom for fast page loading -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
-  
+  </div>
 </body>
 </html>
 

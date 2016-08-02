@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Repository;
 
 import com.i2i.model.Make;
 import com.i2i.exception.UserDefinedException;
@@ -22,6 +23,7 @@ import com.i2i.exception.UserDefinedException;
  * @version 1.0
  * @created 25-07-2016
  */
+@Repository("makeDao")
 public class MakeDao extends GenericDao {
 	
 	/**
@@ -37,13 +39,10 @@ public class MakeDao extends GenericDao {
 	    Transaction transaction = null;
 	    Session session = openSession();
 	    try {
-	    	System.out.println("Enter into DAO");
-	    	System.out.println(session);
-	    	System.out.println("before Get transaction");
+	    	System.out.println("Enter into make DAO");
 	        transaction = session.beginTransaction();
-	        System.out.println("after Get transaction & bfr save");
 	        session.save(make);
-	        System.out.println("After save");
+	        System.out.println("Make details saved");
 	        transaction.commit();
 	    } catch (HibernateException e) {
 	    	System.out.println(e);

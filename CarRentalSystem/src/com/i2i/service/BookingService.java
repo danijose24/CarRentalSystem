@@ -2,6 +2,10 @@ package com.i2i.service;
 
 import java.util.List;
 import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.Date;
 
 import com.i2i.model.Booking;
@@ -20,8 +24,11 @@ import com.i2i.exception.UserDefinedException;
  * @author Sudhakar
  * @created 25-07-2016
  */
+@Service
 public class BookingService {
-	BookingDao bookingDao = new BookingDao();
+	
+	@Autowired
+	BookingDao bookingDao;
     /**
 	 * <p>
 	 * The add booking method is used to add booking details to the database,

@@ -6,6 +6,9 @@ package com.i2i.model;
 public class UserRole {
 	private int userId;
 	private int roleId;
+	
+	public UserRole() {}
+	
 	/**
 	 * @param userId
 	 * @param roleId

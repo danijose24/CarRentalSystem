@@ -4,6 +4,9 @@ package com.i2i.service;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.i2i.model.Car;
 import com.i2i.model.Make;
 import com.i2i.dao.CarDao;
@@ -18,8 +21,10 @@ import com.i2i.exception.UserDefinedException;
  * @author Sudhakar
  * @created 25-07-2016
  */
+@Service
 public class CarService {
-    CarDao carDao = new CarDao();
+	@Autowired
+    CarDao carDao;
     /**
      * <p>
      * The add car method is used to add car details to the database,

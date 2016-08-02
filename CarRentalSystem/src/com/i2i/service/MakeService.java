@@ -3,6 +3,9 @@ package com.i2i.service;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.i2i.model.Make;
 import com.i2i.dao.MakeDao;
 import com.i2i.exception.UserDefinedException;
@@ -16,8 +19,11 @@ import com.i2i.exception.UserDefinedException;
  * @author Sudhakar
  * @created 25-07-2016
  */
+@Service
 public class MakeService {
-    MakeDao makeDao = new MakeDao();
+	
+	@Autowired
+    MakeDao makeDao ;
     /**
      * <p>
      * The add make method is used to add make details to the database,
@@ -35,7 +41,6 @@ public class MakeService {
 	 */
 	public void addMake(Make make) throws UserDefinedException {
 	    System.out.println("Enter into Make Service");
-	    System.out.println(make);
 	    makeDao.insertMake(make);
 	}
 

@@ -3,6 +3,8 @@ package com.i2i.service;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.i2i.model.User;
 import com.i2i.dao.UserDao;
 import com.i2i.exception.UserDefinedException;
@@ -16,8 +18,11 @@ import com.i2i.exception.UserDefinedException;
  * @author Sudhakar
  * @created 25-07-2016
  */
+@Service
 public class UserService {
-    UserDao userDao = new UserDao();
+	
+	@Autowired
+    UserDao userDao;
 
     /**
 	 * <p>
@@ -40,9 +45,6 @@ public class UserService {
 	 */
 	public void addUser(User user) throws UserDefinedException {
 	    System.out.println("enter into service");
-	    java.sql.Time createdAt = new java.sql.Time(new java.util.Date().getTime());
-        user.setCreatedAt(createdAt);
-        System.out.println(user);
 	    userDao.insertUser(user);
 	}
 

@@ -59,8 +59,7 @@ public class User {
 		this.createdAt = createdAt;
 	}
 
-	public User() {
-	}
+	public User() {	}
 
 	/**
 	 * @return the id

@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException; 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Repository;
 
 import com.i2i.model.Car;
 import com.i2i.model.Make;
@@ -21,6 +22,7 @@ import com.i2i.exception.UserDefinedException;
  * @version 1.0
  * @created 25-07-2016
  */
+@Repository("carDao")
 public class CarDao extends GenericDao {
 	
 	/**
@@ -120,6 +122,7 @@ public class CarDao extends GenericDao {
 	        List<Car> cars = session.createQuery("FROM Car").list();
 	        return cars;
 	    } catch (HibernateException e) {
+	    	e.printStackTrace();
 	        throw new UserDefinedException("Car details can not be Displayed!...",e);
 	    } finally {
 	        closeSession(session);

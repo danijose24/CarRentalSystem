@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.stereotype.Repository;
 
 import com.i2i.model.Booking;
 import com.i2i.model.Car;
@@ -24,6 +25,7 @@ import com.i2i.exception.UserDefinedException;
  * @version 1.0
  * @created 25-07-2016
  */
+@Repository("bookingDao")
 public class BookingDao extends GenericDao {
 	
 	/**

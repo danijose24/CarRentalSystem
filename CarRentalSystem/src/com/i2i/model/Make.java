@@ -25,7 +25,7 @@ public class Make {
 	@Id
 	
 	@Column(name="id")
-	private String id;
+	private int id;
 	
 	@Column(name="name")
 	private String name;
@@ -36,12 +36,10 @@ public class Make {
     private Set<Car> cars = new HashSet<Car>();
 
 	/**
-	 * @param id
 	 * @param name
 	 * @param rate
 	 */
-	public Make(String id, String name, int rate) {
-		this.id = id;
+	public Make( String name, int rate) {
 		this.name = name;
 		this.rate = rate;
 	}
@@ -49,13 +47,13 @@ public class Make {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	/**

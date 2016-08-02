@@ -66,12 +66,15 @@
                           </tr>
                            
                      		<c:forEach items="${car}" var="car">
+                     		<form:form id = "carId" action="signUp.html"  >
+                            <input type="hidden" id ="car" name="car" value="${car.id}" />
                      		<tr style="background-color:white;color: black;text-align: center;" height="30px" >
                        		   <td><c:out value="${car.id}"/></td>
                        		   <td><c:out value="${car.carType}"/></td>
                        		   <td><c:out value="${car.carNumber}"/></td>
                        		   <td><a href="signUp.html"><input type="submit" value="Book"/></a>
                     		</tr>
+                    		</form:form>
                             </c:forEach>
                          </table>
                       </c:if>

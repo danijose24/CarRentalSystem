@@ -7,6 +7,8 @@ public class Role {
     private int id;
     private String name;
     
+    public Role() {}
+    
 	/**
 	 * @param id
 	 * @param name

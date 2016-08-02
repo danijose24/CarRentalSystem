@@ -55,8 +55,8 @@
 		<div class="sidebar">
           <div class="sidebar_item">
              <h2>Our Features</h2>
-                 <p>&#9755;Airport Transfer</p>
-                 <p>&#9755;Intercity Travel</p>
+                 <p>&#9755; Airport Transfer</p>
+                 <p>&#9755; Intercity Travel</p>
                  <p>&#9755; Local usage.</p>
                  <p>&#9755; Daily rental.</p>
                  <p>&#9755; Courtesy Pickup and Drop.</p>
@@ -68,7 +68,7 @@
           <div class="sidebar_item">
             <h2>Offer For You</h2>
             <h3>Free Trip</h3>
-            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India .</p>         
+            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India.</p>         
 		  </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
 		  		
@@ -76,7 +76,7 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmailcom</a></p>
+            <p>Email: quickCars@gmail.com</a></p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	

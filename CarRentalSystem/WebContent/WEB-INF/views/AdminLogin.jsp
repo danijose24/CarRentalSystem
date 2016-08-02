@@ -54,14 +54,14 @@
 		<div class="sidebar">
           <div class="sidebar_item">
             <h2>Our Service</h2>
-            <p>Welcome to our website.this is the great palce to book a car for your drive to any palce.we are providing the Best Service in car Rending</p>
+            <p>Welcome to our website.This is the great palce to book a car for your drive to any palce.we are providing the Best Service in car Rending</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->     		
 		<div class="sidebar">
           <div class="sidebar_item">
             <h2>Offer For You</h2>
             <h3>Free Trip</h3>
-            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India .</p>         
+            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India.</p>         
 		  </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
 		  		
@@ -69,7 +69,7 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmailcom</a></p>
+            <p>Email: quickCars@gmail.com</a></p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	
@@ -117,4 +117,3 @@
   
 </body>
 </html>
-
