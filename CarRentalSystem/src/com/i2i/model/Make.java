@@ -6,16 +6,33 @@ package com.i2i.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.i2i.model.Car;
 
 /**
  * @author sudhakar
  *
  */
+@Entity
+@Table(name = "Make")
 public class Make {
+	
+	@Id
+	
+	@Column(name="id")
 	private String id;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="rate")
 	private int rate;
+	
     private Set<Car> cars = new HashSet<Car>();
 
 	/**
@@ -28,6 +45,7 @@ public class Make {
 		this.name = name;
 		this.rate = rate;
 	}
+	public Make() {}
 	/**
 	 * @return the id
 	 */

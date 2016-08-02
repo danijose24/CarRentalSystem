@@ -37,11 +37,17 @@ public class MakeDao extends GenericDao {
 	    Transaction transaction = null;
 	    Session session = openSession();
 	    try {
+	    	System.out.println("Enter into DAO");
+	    	System.out.println(session);
+	    	System.out.println("before Get transaction");
 	        transaction = session.beginTransaction();
+	        System.out.println("after Get transaction & bfr save");
 	        session.save(make);
+	        System.out.println("After save");
 	        transaction.commit();
 	    } catch (HibernateException e) {
-	        throw new UserDefinedException("Make details added Failed!...",e);
+	    	System.out.println(e);
+	        throw new UserDefinedException("",e);
 	    } finally {
 	        closeSession(session);
 	    }

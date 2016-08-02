@@ -39,7 +39,10 @@ public class UserService {
 	 *          If there is failed in inserting operation.           
 	 */
 	public void addUser(User user) throws UserDefinedException {
-	   //User user = new User(name, phoneNumber, email, password, address);
+	    System.out.println("enter into service");
+	    java.sql.Time createdAt = new java.sql.Time(new java.util.Date().getTime());
+        user.setCreatedAt(createdAt);
+        System.out.println(user);
 	    userDao.insertUser(user);
 	}
 
@@ -113,5 +116,9 @@ public class UserService {
 	     user.setPassword(password);
 	     user.setAddress(address);
 	     return userDao.updateUser(user);
+	 }
+	 
+	 public User findUser(User user) throws UserDefinedException{
+		 return userDao.searchUser(user);
 	 }
 }

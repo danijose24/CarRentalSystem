@@ -35,8 +35,7 @@ public class CarService {
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */
-	public void addCar(String id, int carType, String carNumber) throws UserDefinedException {
-		    Car car = new Car(id, carType, carNumber);
+	public void addCar(Car car) throws UserDefinedException {
 		    carDao.insertCar(car);
 	}
 
@@ -51,7 +50,7 @@ public class CarService {
 	 * @throws UserDefinedException 
 	 *         If there is failed to find car details.                        
 	 */
-	public Car findCarById(String carId) throws UserDefinedException {
+	public Car findCarById(int carId) throws UserDefinedException {
 	    return carDao.findCar(carId);
 	}
     /**
@@ -98,7 +97,7 @@ public class CarService {
 	 * @throws UserDefinedException 
 	 *         if there is failed in updating car details.                        
 	 */
-	 public boolean updateCarById(String carId, int carType, String carNumber) throws UserDefinedException {
+	 public boolean updateCarById( int carId, int carType, String carNumber) throws UserDefinedException {
 	     Car car = findCarById(carId);
 	     car.setCarType(carType);
 	     car.setCarNumber(carNumber);

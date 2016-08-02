@@ -1,7 +1,8 @@
 package com.i2i.dao;
 
 import java.util.List;
-import org.hibernate.HibernateException; 
+import org.hibernate.HibernateException;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session; 
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
@@ -36,8 +37,10 @@ public class UserDao extends GenericDao {
 	    Transaction transaction = null;
 	    Session session = openSession();
 	    try {
+	    	System.out.println("enter DAO befr insert");
 	        transaction = session.beginTransaction();
 	        session.save(user);
+	        System.out.println("Successfly added");
 	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("User details added Failed!...",e);
@@ -152,4 +155,32 @@ public class UserDao extends GenericDao {
 	        closeSession(session);
 	    }
 	}
+	
+	
+	
+	public User searchUser(User user) throws UserDefinedException {
+        Transaction transaction = null;
+	    Session session = openSession();
+        try { 
+        	transaction = session.beginTransaction();
+            String sql = "SELECT * FROM User WHERE email = :email and password= :password";
+            SQLQuery query = session.createSQLQuery(sql);
+            query.addEntity(User.class);
+            query.setParameter("email", user.getEmail());
+            query.setParameter("password", user.getPassword());
+            Object object = query.list().get(0);
+            User userFromDao = (User)object;
+            transaction.commit();
+            return userFromDao;
+            
+        } catch (HibernateException e) {
+            throw new UserDefinedException("Invalid User Name or password "
+                                            +user.getEmail(),e); 
+        } catch (IndexOutOfBoundsException e) {
+            throw new UserDefinedException("Invalid User Name or password "
+                    +user.getEmail(),e);
+           } finally {
+        }
+    }
+	
 }

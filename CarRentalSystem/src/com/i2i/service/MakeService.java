@@ -33,8 +33,9 @@ public class MakeService {
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */
-	public void addMake(String id, String name, int rate) throws UserDefinedException {
-	    Make make = new Make(id, name, rate);
+	public void addMake(Make make) throws UserDefinedException {
+	    System.out.println("Enter into Make Service");
+	    System.out.println(make);
 	    makeDao.insertMake(make);
 	}
 

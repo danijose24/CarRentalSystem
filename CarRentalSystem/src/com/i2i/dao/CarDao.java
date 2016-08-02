@@ -58,7 +58,7 @@ public class CarDao extends GenericDao {
 	 *          returns the car object to CarService.
 	 *
 	 */
-	public Car findCar(String carId) throws UserDefinedException {
+	public Car findCar(int carId) throws UserDefinedException {
 	    Transaction transaction = null;
 	    Session session = openSession();
 	    Car car;

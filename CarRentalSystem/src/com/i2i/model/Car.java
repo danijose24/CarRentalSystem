@@ -12,7 +12,7 @@ import com.i2i.model.Booking;
  *
  */
 public class Car {
-	private String id;
+	private int id;
 	private int carType;
 	private String carNumber;
 	private Make make;
@@ -24,21 +24,22 @@ public class Car {
 	 * @param carType
 	 * @param carNumber
 	 */
-	public Car(String id, int carType, String carNumber) {
-		this.id = id;
+	public Car(int carType, String carNumber) {
 		this.carType = carType;
 		this.carNumber = carNumber;
 	}
+	
+	public Car() {}
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

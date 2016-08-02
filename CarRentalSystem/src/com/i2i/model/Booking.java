@@ -24,6 +24,7 @@ public class Booking {
 	 * @param dropDate
 	 * @param amount
 	 */
+	public Booking() {}
 	public Booking(Date pickupDate,
 			Date dropDate, int amount) {
 		this.pickupDate = pickupDate;

@@ -2,15 +2,42 @@ package com.i2i.model;
 
 
 import java.util.Set;
-import java.util.HashSet;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import java.sql.Time;
+import java.util.HashSet;
+@Entity
+@Table(name = "User")
 public class User {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
     private int id;
+	
+	@Column(name = "name")
     private String name;
+	
+	@Column(name = "phoneNumber")
     private String phoneNumber;
+	
+    @Column(name = "email")
     private String email;
+    
+    @Column(name = "password")
     private String password;
+    
+    @Column(name = "address")
     private String address;
+    
+    @Column(name = "createdAt")
+    private Time   createdAt;
+    
     private Set<Booking> bookings = new HashSet<Booking>();
     private Set<Role> roles = new HashSet<Role>();
 
@@ -23,12 +50,16 @@ public class User {
 	 * @param address
 	 */
 	public User(String name, String phoneNumber, String email,
-			String password, String address) {
+			String password, String address, Time createdAt) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
 		this.password = password;
 		this.address = address;
+		this.createdAt = createdAt;
+	}
+
+	public User() {
 	}
 
 	/**
@@ -141,6 +172,21 @@ public class User {
 	 */
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", email=" + email + ", password="
+				+ password + ", address=" + address + ", createdAt=" + createdAt + ", bookings=" + bookings + ", roles="
+				+ roles + "]";
 	}
     
 }

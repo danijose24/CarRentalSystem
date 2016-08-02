@@ -38,9 +38,7 @@ public class BookingService {
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */
-    public void addBooking(Date pickupDate,
-			Date dropDate, int amount) throws UserDefinedException {
-	    Booking booking = new Booking(pickupDate, dropDate, amount);
+    public void addBooking(Booking booking) throws UserDefinedException {
 	    bookingDao.insertBooking(booking);
 	}
 
