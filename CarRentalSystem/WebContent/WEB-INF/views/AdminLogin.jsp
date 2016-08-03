@@ -27,6 +27,8 @@
 	  </div><!--close banner-->	
 	</header>
 	
+   <br>
+   <br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -92,12 +94,10 @@
                   </tr>
                     <tr>
                <td></td>
-               <td> <input class="submit" type="submit" class="btn btn-default btn-lg" value="LogIn"> <a href="signUp.html"><button class="submit" class="btn btn-default" type="button">Go Back</button></a></td>
+               <td> <input class="submit" type="submit" class="btn btn-default btn-lg" value="LogIn"> <a href="mainHome.html"><button class="submit" class="btn btn-default" type="button">Go Back</button></a></td>
            </tr>
                   
                </table>
-               
-               
                </center>
               </form>
 		</div><!--close content-->   

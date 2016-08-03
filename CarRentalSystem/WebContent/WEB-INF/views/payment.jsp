@@ -1,19 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-          <title>CarRentalSystem</title>
+<head>
+  <title>CarRentalSystem</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <!-- modernizr enables HTML5 elements and feature detects -->
   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
-  </head>
-  <body>
-    <div id="main">
+</head>
+<body>
+<div id="main">
     <header>
 	  <div id="banner">
 	    <div id="welcome">
@@ -44,28 +43,13 @@
           <li><img width="940" height="300" src="images/car5.png" alt="&quot;Provide our Best Service to U&quot;" /></li>
           <li><img width="940" height="300" src="images/car6.jpg" alt="&quot;Have a great Journy&quot;" /></li>
         </ul> 
-	  </div><!--close slideshow-->	
-	
-	  <div id="content">
-        <div class="content_item">
-                  <br><br><br>
-                      <div style="color: teal;font-size: 30px">Booking Details</div>
-                      <br>
-                      <form action="finalBooking.html">
-                          <c:if test="${!empty booking}">
-                          <p>Pickup Date : <c:out value="${booking.pickupDate}"/></p>
-                          <p>Drop Date : <c:out value="${booking.dropDate}"/></p>
-                          <p>Address : <c:out value="${booking.address}"/></p>
-                          <p>Amount : <c:out value="${booking.amount}"/></p>
-                          <input class="submit" type="submit" class="btn btn-default btn-lg" value="Confirm Booking">
-                      </c:if>
-                      </form>
-                      <br><br>
-                      <br>
-        </div><!--close content_item-->
-      </div><!--close content-->   
-	
-	</div><!--close site_content-->  	
+	  </div><!--close slideshow-->
+	  
+            <h2>Select the type of Payment</h2><br><br>
+            <div>
+                 <input class="submit" type="submit" class="btn btn-default btn-lg" value="Credit Card">            
+            </div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div><!--close site_content-->  	
   
     <footer>
 	  <h3>copy rights reserved by Ideas2It</h3>

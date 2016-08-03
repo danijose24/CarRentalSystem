@@ -24,17 +24,17 @@
 	  </div><!--close banner-->	
 	</header>
 	
+	<nav>
 	  <div id="menubar">
         <ul id="nav">
           <li><a href="mainHome.html">Home</a></li>
           <li><a href="availableCar.html">Available Cars</a></li>
           <li><a href="logIn.html">LogIn</a></li>
           <li class="current"><a href="logIn.html">Book A Car</a></li>
-         
-          
-        </ul>
+       </ul>
       </div><!--close menubar-->	
-    
+   
+     </nav>
 	<div id="site_content">		
 
       <div class="slideshow">
@@ -87,7 +87,11 @@
            <tr>
                <td><h3 style="color:silver">Drop Date</h3></td>
                <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="dropDate"><br><br></td>
-           </tr>        
+           </tr>   
+            <tr>
+               <td><h3 style="color:silver"> Address</h3></td>
+               <td><input required type="text" name="address"><br><br></td>
+           </tr>      
            <tr>
                <td colspan="2"> <input class="submit" type="submit" value="Confirm Booking"></td>
            </tr>

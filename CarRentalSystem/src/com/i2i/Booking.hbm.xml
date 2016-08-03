@@ -14,6 +14,7 @@
         <property name="pickupDate" column="pickupDate" type="date"/>
         <property name="dropDate" column="dropDate" type="date"/>
         <property name="amount" column="amount" type="int"/>
+        <property name="address" column="address" type="string"></property>
         <many-to-one name="user" class="com.i2i.model.User" lazy="false" fetch="select">
             <column name="userId" not-null="false"/>
         </many-to-one>

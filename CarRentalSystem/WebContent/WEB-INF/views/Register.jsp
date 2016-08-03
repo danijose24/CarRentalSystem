@@ -100,23 +100,23 @@
                    
            <tr>
               <td><h4 style="color:silver;"><label for="name">Name</label></h4></td>
-              <td><input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required="required"></td>
+              <td><input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required="required" pattern="[a-zA-Z ]*"></td>
            
            </tr>
            
            <tr>
                <td><h4 style="color:silver;"><label for="phoneNumber">Phone Number &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label></h4></td>
-               <td><input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" placeholder="Enter Phone Number" name="phoneNumber" required="required"></td>
+               <td><input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" placeholder="Enter Phone Number" name="phoneNumber" required="required" pattern="[789][0-9]{9}"></td>
            </tr>
            
            <tr>
                <td><h4 style="color:silver;"><label for="email">Email</label></h4></td>
-               <td><input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required="required"></td>
+               <td><input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required="required" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></td>
            </tr>
            
            <tr>
                <td><h4 style="color:silver;"><label for="pwd">Password</label></h4></td>
-               <td><input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required="required"></td>
+               <td><input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" required="required" pattern=".{6,}"></td>
            </tr>
            
            <tr> 
@@ -135,12 +135,12 @@
 		</div><!--close content-->   
 	
 	</div><!--close site_content-->  	
-  
+  <br>
     <footer>
 	 <center><h3>WE ARE HAPPY TO HELP YOU </h3></center><br>
 	 
 	 </footer> 
-  
+  <br>
   </div><!--close main-->
   
   <!-- javascript at the bottom for fast page loading -->

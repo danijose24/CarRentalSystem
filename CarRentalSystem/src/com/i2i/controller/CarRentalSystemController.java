@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -86,18 +85,11 @@ public class CarRentalSystemController {
 		return new ModelAndView("Login");
 	}
 	
-	/*@RequestMapping("/bookingCar")
-	public ModelAndView getBookingForm() {
-		System.out.println("from user to Booking car page");
-		return new ModelAndView("BookingCar");
-	}*/
-	
-	@RequestMapping("/addCar")
+    @RequestMapping("/addCar")
 	public ModelAndView getCarAddForm() {
 		System.out.println("entering into add car");
 		return new ModelAndView("NewCarAdd");
 	}
-	
 	
 	@RequestMapping("/assignMakeToCar")
 	public ModelAndView getAssignMakeToCar() {
@@ -146,7 +138,7 @@ public class CarRentalSystemController {
 	    } catch (UserDefinedException e) {
 		    System.out.println(e);
         }
-		return new ModelAndView("AvailableCars");
+		return new ModelAndView("payment");
 	}
 	
 	@RequestMapping("/saveUser")
@@ -208,9 +200,7 @@ public class CarRentalSystemController {
 			System.out.println(e);
 		}
 		return new ModelAndView("Admin");
-		
 	}
-	
 		
 	@RequestMapping("/availableCar")
 	public ModelAndView getUserList() {
@@ -241,19 +231,22 @@ public class CarRentalSystemController {
 		return null;
 	}
 	
-	
 	@RequestMapping("/checkAdmin")
 	public ModelAndView getAdmin(@ModelAttribute("user") User user,
      	   BindingResult result)  {
 		try {
-			System.out.println("check admin controller");
-			User checkUser = userService.findUser(user);
-			if(null != checkUser) {
-				return new ModelAndView("Admin");
+			String adminEmail = "admin@gmail.com";
+			String adminPassword = "123456";
+			if(adminEmail.equals(user.getEmail()) && adminPassword.equals(user.getPassword())) {
+	
+			    System.out.println("check admin controller");
+		    	return new ModelAndView("Admin");
+			} else {
+				return new ModelAndView("AdminLogin");
 			}
-		} catch (UserDefinedException e){
+		} catch (Exception e) {
+			System.out.println(e);
 			return new ModelAndView("AdminLogin");
 	    }
-		return null;
 	}
 }

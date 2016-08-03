@@ -16,6 +16,7 @@ public class Booking {
 	private int amount;
 	private User user;
 	private Car car;
+	private String address;
 	/**
 	 * @param id
 	 * @param userId
@@ -27,10 +28,11 @@ public class Booking {
 	public Booking() {}
 	
 	public Booking(Date pickupDate,
-			Date dropDate, int amount) {
+			Date dropDate, int amount,String address) {
 		this.pickupDate = pickupDate;
 		this.dropDate = dropDate;
 		this.amount = amount;
+		this.address = address;
 	}
 	/**
 	 * @return the id
@@ -105,5 +107,18 @@ public class Booking {
 	public void setCar(Car car) {
 		this.car = car;
 	}
-	
+
+	/**
+	 * @return the address
+	 */
+	public String getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress(String address) {
+		this.address = address;
+	}
 }
