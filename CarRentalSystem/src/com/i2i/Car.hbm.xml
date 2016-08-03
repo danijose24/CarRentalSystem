@@ -23,7 +23,7 @@
             <one-to-many class="com.i2i.model.Booking"/>
       </set>
 
-      <many-to-one name="make" class="com.i2i.model.Make" fetch="select">
+      <many-to-one name="make" class="com.i2i.model.Make" lazy="false" fetch="select">
             <column name="makeId"/>
       </many-to-one>
   </class>

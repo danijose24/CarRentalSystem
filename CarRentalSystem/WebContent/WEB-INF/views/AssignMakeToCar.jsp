@@ -33,7 +33,7 @@
           <li><a href="availableCar.html">Available Cars</a></li>
           <li><a href="logIn.html">LogIn</a></li>
           <li class="current"><a href="adminform.html">Admin</a></li>
-          <li><a href="mainHome.html">LogOut</a></li>
+          
         </ul>
       </div><!--close menubar-->	
     </nav>	
@@ -83,21 +83,28 @@
 	
 	  <div id="content">
         <div class="content_item">
-		  <h1>WELCOME TO ADMIN PAGE</h1> 
-		 <center> 
-		<table cellspacing="2">
-		    <tr>
-               <td><a href="addCar.html"><img src="images/addcar.jpg" alt="add car image" height="300px" width="300px"></a></td>
-               <td><a href="addMake.html"><img src="images/make.jpg" alt="add Make image" height="300px" width="300px"></a></td>	  
-		    </tr>
-		   
-		    <tr>
-		    <td colspan="2"><center><a href="assignMakeToCar.html"><img src="images/AssignMaketoCar.jpg" alt="Assign a make to a car image" height="300px" width="300px"></a></center></td>
-		    
-		    </tr>
-		</table>
-	</center>
-	</div><!--close site_content-->  	
+		
+		 <form action="saveAssignMakeToCar.html" method="post">
+          <center>
+            <h1>ASSIGN MAKE TO CAR</h1>
+        <table>
+        
+           <tr>
+               <td>Make ID</td>
+               <td><input type="text" required id="id" name="makeId"><br><br></td>
+           </tr>
+           
+           <tr>
+               <td>CAR ID</td>
+               <td><input type="text" required id="id" name="carId"><br><br></td>
+           </tr>
+           
+           <tr>
+               <td colspan="2"> <input class="submit" type="submit" value="Assign"></a></td>
+           </tr>
+        </table>
+        </center>
+        </form>
   
     <footer>
 	 <center><h3>WE ARE HAPPY TO HELP YOU </h3></center><br>

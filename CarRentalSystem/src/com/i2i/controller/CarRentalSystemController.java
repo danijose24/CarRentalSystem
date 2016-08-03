@@ -2,7 +2,9 @@ package com.i2i.controller;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,13 +34,34 @@ public class CarRentalSystemController {
 	@Autowired
 	BookingService bookingService;
 	
-	@RequestMapping("/signUp")
-	public ModelAndView getRegisterForm() {
+	@Autowired
+    CarService carService;
+	
+	private Booking confirmBooking = null;
+	
+	@RequestMapping(value = "/signUp")
+	public ModelAndView getRegisterForm(@RequestParam("car") int carId) {
+		System.out.println("entering into sign up");
+		System.out.println(carId);
+		getCarId(carId);
+		return new ModelAndView("Register");
+	}
+	
+	@RequestMapping(value = "/goSignUp")
+	public ModelAndView goRegisterForm() {
 		System.out.println("entering into sign up");
 		return new ModelAndView("Register");
 	}
 	
+	private int tempCarId;
+	public void getCarId(int carId) {
+		tempCarId = carId;
+	}
 	
+	private User tempUser;
+	public void getUserid(User user) {
+		tempUser = user;
+	}
 	
 	@RequestMapping("/admin")
 	public ModelAndView getAdminForm() {
@@ -76,41 +99,55 @@ public class CarRentalSystemController {
 	}
 	
 	
+	@RequestMapping("/assignMakeToCar")
+	public ModelAndView getAssignMakeToCar() {
+		System.out.println("entering into add make");
+		return new ModelAndView("AssignMakeToCar");
+	}
+	
 	@RequestMapping("/addMake")
 	public ModelAndView getMakeAddForm() {
 		System.out.println("entering into add make");
 		return new ModelAndView("AddNewMake");
 	}
 	
-	
-	
-	/*
-	 * controller for add a new Bookking
-	 */
 	@RequestMapping("/bookingSuccess")	
 	public ModelAndView getBookingCarForm(@ModelAttribute("booking") Booking booking,BindingResult result) {
+	    
+		Map<String, Booking> model = new HashMap<String, Booking>();
 		try {
-			System.out.println("get Booking Car controller");
-			bookingService.addBooking(booking);
-			Date d1 = booking.getPickupDate();
+		    confirmBooking = booking;
+		    System.out.println("get Booking Car controller");
+		    Car car = carService.findCarById(tempCarId);
+		    Date d1 = booking.getPickupDate();
             Date d2 = booking.getDropDate();
             long difference = d2.getTime() - d1.getTime();
-            difference = difference + 1;
             int dayDifference = (int) (long) difference;
             int totalDays = dayDifference / (24 * 60 * 60 * 1000);
+            totalDays = totalDays + 1;
             System.out.println(totalDays +"days");
-           // Set<Booking> bookings = new HashSet<Booking>();
-		    //bookings.add(booking);
-            //bookingService.assignUserToBookings(bookings, user);
-		} catch (UserDefinedException e){
-			System.out.println(e);
-	    }
-	    return new ModelAndView("Success");
+            int amount = car.getMake().getRate() * totalDays;
+            booking.setAmount(amount);
+	        model.put("booking", booking);
+	    } catch (UserDefinedException e) {
+		    System.out.println(e);
+        }
+		return new ModelAndView("confirmBooking", model);
 	}
 	
-	/*
-	 * contoller for careat a new user
-	 */
+	@RequestMapping("/finalBooking")
+	public ModelAndView finalBooking() {
+		try {
+		    System.out.println("entering into final booking");
+		    Car car = carService.findCarById(tempCarId);
+		    confirmBooking.setCar(car);
+	    	confirmBooking.setUser(tempUser);
+		    bookingService.addBooking(confirmBooking);
+	    } catch (UserDefinedException e) {
+		    System.out.println(e);
+        }
+		return new ModelAndView("AvailableCars");
+	}
 	
 	@RequestMapping("/saveUser")
 	public ModelAndView saveUserData(@ModelAttribute("user") User user,
@@ -127,8 +164,6 @@ public class CarRentalSystemController {
 		return new ModelAndView("Login");
 	}
 	
-	@Autowired
-    CarService carService;
 	/*
 	 * controller to create a new car
 	 */
@@ -159,6 +194,23 @@ public class CarRentalSystemController {
 		
 	}
 	
+	@RequestMapping(value = "/saveAssignMakeToCar", method=RequestMethod.POST)
+	public ModelAndView assignMakeToCar(@RequestParam("makeId") int makeId , @RequestParam("carId") int carId) {
+		try {
+		    System.out.println("Enter in to assigning");
+            Make make = makeService.findMakeById(makeId);
+            Car car = carService.findCarById(carId);
+		    Set<Car> cars = new HashSet<Car>();
+		    cars.add(car);
+            carService.assignMakeToCars(cars, make);
+            System.out.println("make assigned successfully");
+		} catch(UserDefinedException e) {
+			System.out.println(e);
+		}
+		return new ModelAndView("Admin");
+		
+	}
+	
 		
 	@RequestMapping("/availableCar")
 	public ModelAndView getUserList() {
@@ -171,7 +223,6 @@ public class CarRentalSystemController {
 			System.out.println(e);
 		}
 		return new ModelAndView("AvailableCars", model);
-
 	}
 	
 	@RequestMapping("/checkUser")
@@ -180,6 +231,7 @@ public class CarRentalSystemController {
 		try {
 			System.out.println("ENTER IN TO CHECK controller");
 			User checkUser = userService.findUser(user);
+			getUserid(checkUser);
 			if(null != checkUser) {
 				return new ModelAndView("BookingCar");
 			}

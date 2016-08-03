@@ -55,7 +55,7 @@ public class MakeService {
 	 * @throws UserDefinedException 
 	 *         If there is failed to find make details.                        
 	 */
-	public Make findMakeById(String id) throws UserDefinedException {
+	public Make findMakeById(int id) throws UserDefinedException {
 	    return makeDao.findMake(id);
 	}
     /**
@@ -99,7 +99,7 @@ public class MakeService {
 	 * @throws UserDefinedException 
 	 *         If there is failed in updating make details.                        
 	 */
-	 public boolean updateMakeById(String id,String name, int rate) throws UserDefinedException {
+	 public boolean updateMakeById(int id,String name, int rate) throws UserDefinedException {
 	     Make make = findMakeById(id);
 	     make.setName(name);
 	     make.setRate(rate);

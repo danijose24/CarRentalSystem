@@ -25,7 +25,7 @@
           <one-to-many class="com.i2i.model.Booking" />
       </set>
         
-      <set name="roles" table="UserRole" cascade="all">
+      <set name="roles" table="UserRole" cascade="all" lazy="false">
           <key column="userId" />
               <many-to-many column="roleId"  class="com.i2i.model.Role" />
       </set>

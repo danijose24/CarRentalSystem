@@ -64,7 +64,7 @@ public class MakeDao extends GenericDao {
 	 *          returns the make object to MakeService.
 	 *
 	 */
-	public Make findMake(String makeId) throws UserDefinedException {
+	public Make findMake(int makeId) throws UserDefinedException {
 	    Transaction transaction = null;
 	    Session session = openSession();
 	    Make make;

@@ -94,7 +94,7 @@
                   </tr>
                     <tr>
                <td></td>
-               <td> <input class="submit" type="submit" class="btn btn-default btn-lg" value="LogIn"> <a href="signUp.html"><button class="submit" class="btn btn-default" type="button">Go Back</button></a></td>
+               <td> <input class="submit" type="submit" class="btn btn-default btn-lg" value="LogIn"> <a href="goSignUp.html"><button class="submit" class="btn btn-default" type="button">Go Back</button></a></td>
            </tr>
                   
                </table>

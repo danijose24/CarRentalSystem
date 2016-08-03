@@ -100,7 +100,7 @@
            </tr>
            
            <tr>
-               <td colspan="2"> <input class="submit" type="submit" value="Add Make"> <button class="submit" type="button">Go Back</button></a></td>
+               <td colspan="2"> <input class="submit" type="submit" value="Add Make"></a></td>
            </tr>
         </table>
         </center>

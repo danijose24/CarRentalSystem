@@ -1,22 +1,19 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
-
-<head>
-  <title>CarRentalSystem</title>
+  <head>
+          <title>CarRentalSystem</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <!-- modernizr enables HTML5 elements and feature detects -->
   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
-</head>
-
-<body>
-  <div id="main">
+  </head>
+  <body>
+    <div id="main">
     <header>
 	  <div id="banner">
 	    <div id="welcome">
@@ -51,23 +48,18 @@
 	
 	  <div id="content">
         <div class="content_item">
-		  <h1>Here Comes Available Cars</h1> 
                   <br>
-                      <div style="color: teal;font-size: 30px">Car Details </div>
+                      <div style="color: teal;font-size: 30px">Booking Details</div>
                       <br>
-                      <c:if test="${!empty car}">
-                      
-                     		<c:forEach items="${car}" var="car">
-                     		<form id = "carId" action="signUp.html">
-                            <input type="hidden" id ="car" name="car" value="${car.id}" />
-                       		   <p style="align : left">Car Id : <c:out value="${car.id}"/></p>
-                       		   <p>Car Type : <c:out value="${car.carType}"/></p>
-                       		   <p>Car Number : <c:out value="${car.carNumber}"/></p>
-                       		   <p><input type="submit" value="Book"/></p>
-                    		</form>
-                            </c:forEach>
+                      <form action="finalBooking.html">
+                          <c:if test="${!empty booking}">
+                          <p>Pickup Date : <c:out value="${booking.pickupDate}"/></p>
+                          <p>Drop Date : <c:out value="${booking.dropDate}"/></p>
+                          <p>Amount : <c:out value="${booking.amount}"/></p>
+                          <input class="submit" type="submit" class="btn btn-default btn-lg" value="Confirm Booking">
+                      </form>
                       </c:if>
-<br>
+                      <br>
         </div><!--close content_item-->
       </div><!--close content-->   
 	
@@ -82,7 +74,5 @@
   <!-- javascript at the bottom for fast page loading -->
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/image_slide.js"></script>
-  
 </body>
 </html>
-
