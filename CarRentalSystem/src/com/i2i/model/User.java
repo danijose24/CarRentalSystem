@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.HashSet;
 @Entity
 @Table(name = "User")
@@ -36,7 +37,7 @@ public class User {
     private String address;
     
     @Column(name = "createdAt")
-    private Time   createdAt;
+    private Timestamp createdAt;
     
     private Set<Booking> bookings = new HashSet<Booking>();
     private Set<Role> roles = new HashSet<Role>();
@@ -50,7 +51,7 @@ public class User {
 	 * @param address
 	 */
 	public User(String name, String phoneNumber, String email,
-			String password, String address, Time createdAt) {
+			String password, String address, Timestamp createdAt) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
@@ -173,11 +174,11 @@ public class User {
 		this.roles = roles;
 	}
 
-	public Time getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(Time createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 

@@ -5,7 +5,7 @@
 
 <html>
 
-<head>
+<head language="en">
   <title>CarRentalSystem</title>
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
@@ -13,6 +13,12 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" />
   <!-- modernizr enables HTML5 elements and feature detects -->
   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+ 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -20,11 +26,12 @@
     <header>
 	  <div id="banner">
 	    <div id="welcome">
-	      <h2>Qiuck Cars</h2>
+	      <h2>Quick Cars</h2>
 	    </div><!--close welcome-->			  	
 	  </div><!--close banner-->	
 	</header>
-	
+	<br>
+	<br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -51,23 +58,39 @@
 	
 	  <div id="content">
         <div class="content_item">
-		  <h1>Here Comes Available Cars</h1> 
+		  <h1 style="color: silver;">Here Comes Available Cars</h1> 
+              <center>
                   <br>
-                      <div style="color: teal;font-size: 30px">Car Details </div>
+                      <center><div style="color: teal;font-size: 30px">Car Details </div></center>
                       <br>
                       <c:if test="${!empty car}">
-                      
+                       <table width="900px" cellspacing="2" border-spacing:"10px;">
+                          <tr style="background-color: teal;color: white; text-align: center;" height="40px">
+                              <td ><b>Car Id</b></td>
+                              <td><b>Num.Of Seats</b></td>
+                              <td><b>Car Number</b></td>
+                              <td><b>Car Image</b></td>
+                              <td><b>Book</b></td>
+                          </tr>
+                           
                      		<c:forEach items="${car}" var="car">
+                     		<tr style="background-color:white;color: black;text-align: center;" height="30px" >
                      		<form id = "carId" action="signUp.html">
                             <input type="hidden" id ="car" name="car" value="${car.id}" />
-                       		   <p style="align : left">Car Id : <c:out value="${car.id}"/></p>
-                       		   <p>Car Type : <c:out value="${car.carType}"/></p>
-                       		   <p>Car Number : <c:out value="${car.carNumber}"/></p>
-                       		   <p><input type="submit" value="Book"/></p>
+                     		
+                       		   <td><c:out value="${car.id}"/></td>
+                       		   <td><c:out value="${car.carType}"/></td>
+                       		   <td><c:out value="${car.carNumber}"/></td>
+                       		   <td><img alt="image" src="images/<c:out value="${car.imageUrl}"/>" width="400px" height="200px"/></td>
+                       		   <td><input type="submit" value="Book" class="btn btn-primary"/></td>
+                    		</tr>
+                    		
                     		</form>
                             </c:forEach>
+                         </table>
                       </c:if>
 <br>
+</center>
         </div><!--close content_item-->
       </div><!--close content-->   
 	
@@ -85,4 +108,3 @@
   
 </body>
 </html>
-

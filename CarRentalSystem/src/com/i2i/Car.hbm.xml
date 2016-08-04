@@ -15,7 +15,8 @@
       
       <property name="carType" column="carType" type="int"/>
       <property name="carNumber" column="carNumber" type="string"/>
-          
+      <property name = "imageUrl" column="imageUrl" type="string"/>
+      <property name="createdAt" column="createdAt" type="time"/>
       <set name="bookings" table="Booking" inverse="true" lazy="false" fetch="select">
             <key>
                 <column name="id" not-null="false"/>

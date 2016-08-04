@@ -4,13 +4,21 @@
 
 <html>
 
-<head>
-  <title>CarRentalSystem</title>
+<head>  <title>CarRentalSystem</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
   <!-- modernizr enables HTML5 elements and feature detects -->
+ 
+  <script src="js/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
 </head>
 
@@ -19,11 +27,12 @@
     <header>
 	  <div id="banner">
 	    <div id="welcome">
-	      <h2>Qiuck Cars</h2>
+	      <h2>Quick Cars</h2>
 	    </div><!--close welcome-->			  	
 	  </div><!--close banner-->	
 	</header>
-	
+	<br>
+	<br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -74,26 +83,25 @@
 	
 	  <div id="content">
         <div class="content_item">
-		  <h1>Book A Car</h1> 
+		  <h1 style="color:silver;">Book A Car</h1> 
             <form action="bookingSuccess.html" modelAttribute="booking" method="post">
-        <center><h1> Happy To Help You </h1></center>
-        <center><h2>Place your Booking Here</h2></center>
+        <center><h2 style="color:silver;">Place your Booking Here</h2></center>
        <center>
        <table>             
            <tr>
-               <td><h3 style="color:silver"> Pick Date</h3></td>
-               <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="pickupDate"><br><br></td>
+               <td><h3 style="color:silver"> Pick Date&nbsp;&nbsp;&nbsp;&nbsp;</h3></td>
+               <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="pickupDate" class="form-control" placeholder="MM/DD/YYYY"></td>
            </tr>         
            <tr>
                <td><h3 style="color:silver">Drop Date</h3></td>
-               <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="dropDate"><br><br></td>
+               <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="dropDate"  class="form-control" placeholder="MM/DD/YYYY"></td>
            </tr>   
             <tr>
                <td><h3 style="color:silver"> Address</h3></td>
-               <td><input required type="text" name="address"><br><br></td>
-           </tr>      
-           <tr>
-               <td colspan="2"> <input class="submit" type="submit" value="Confirm Booking"></td>
+               <td><input required type="text" name="address"  class="form-control" placeholder="Enter address"></td>
+           </tr>  <br>    
+           <tr> <td></td>
+                     <td> <input class="btn btn-default " type="submit" value="Confirm Booking"></td>
            </tr>
         </table>
         </center>

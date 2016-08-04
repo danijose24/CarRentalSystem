@@ -3,8 +3,11 @@
  */
 package com.i2i.model;
 
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.persistence.Column;
 
 import com.i2i.model.Booking;
 /**
@@ -16,6 +19,8 @@ public class Car {
 	private int carType;
 	private String carNumber;
 	private Make make;
+	private String imageUrl;
+    private Time   createdAt; 
     private Set<Booking> bookings = new HashSet<Booking>();
 
 	/**
@@ -24,9 +29,10 @@ public class Car {
 	 * @param carType
 	 * @param carNumber
 	 */
-	public Car(int carType, String carNumber) {
+	public Car(int carType, String carNumber,String imageUrl) {
 		this.carType = carType;
 		this.carNumber = carNumber;
+		this.imageUrl = imageUrl;
 	}
 	
 	public Car() {}
@@ -91,4 +97,43 @@ public class Car {
 	public void setMake(Make make) {
 		this.make = make;
 	}
+
+	/**
+	 * @return the imageUrl
+	 */
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	/**
+	 * @param imageUrl the imageUrl to set
+	 */
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
+	
+	/**
+	 * @return the createdAt
+	 */
+	public Time getCreatedAt() {
+		return createdAt;
+	}
+
+	/**
+	 * @param createdAt the createdAt to set
+	 */
+	public void setCreatedAt(Time createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Car [id=" + id + ", carType=" + carType + ", carNumber=" + carNumber + ", imageUrl=" + imageUrl + "]";
+	}
+	
+	
 }

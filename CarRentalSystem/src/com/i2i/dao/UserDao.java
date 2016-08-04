@@ -168,11 +168,14 @@ public class UserDao extends GenericDao {
             String sql = "SELECT * FROM User WHERE email = :email and password= :password";
             SQLQuery query = session.createSQLQuery(sql);
             query.addEntity(User.class);
+            System.out.println(user.getEmail());
+            System.out.println(user.getPassword());
             query.setParameter("email", user.getEmail());
             query.setParameter("password", user.getPassword());
             Object object = query.list().get(0);
             User userFromDao = (User)object;
             transaction.commit();
+            System.out.println(userFromDao);
             return userFromDao;
             
         } catch (HibernateException e) {

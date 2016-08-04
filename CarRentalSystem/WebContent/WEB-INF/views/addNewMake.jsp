@@ -4,16 +4,22 @@
 
 <html>
 
-<head>
-  <title>CarRentalSystem</title>
+<head>  <title>CarRentalSystem</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
   <meta name="description" content="website description" />
-   <meta charset="utf-8"> 
   <meta name="keywords" content="website keywords, website keywords" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+  <!-- modernizr enables HTML5 elements and feature detects -->
  
-
-
+  <script src="js/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
   </head>
 
 <body>
@@ -21,11 +27,12 @@
     <header>
 	  <div id="banner">
 	    <div id="welcome">
-	      <h2>Qiuck Cars</h2>
+	      <h2>Quick Cars</h2>
 	    </div><!--close welcome-->			  	
 	  </div><!--close banner-->	
 	</header>
-	
+	<br>
+	<br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -84,24 +91,28 @@
 	  <div id="content">
         <div class="content_item">
 		
-		 <form action="saveAssignMakeToCar.html" method="post">
+		 <form action="carMakeResult.html" method="post">
           <center>
-            <h1>ASSIGN MAKE TO CAR</h1>
+            <h1 style="color: silver;">Add New Make </h1>
         <table>
         
-           <tr>
-               <td>Make ID</td>
-               <td><input type="text" required id="id" name="makeId"><br><br></td>
+          <tr>
+               <td><h3 style="color:silver;"><label for="makeName">Make Name&nbsp;&nbsp;&nbsp;</label></h4></td>
+               <td><input required="required" type="text"  id="makeName" name="name" class="btn btn-default btn-lg" placeholder="enter make name"><br><br></td>
            </tr>
            
            <tr>
-               <td>CAR ID</td>
-               <td><input type="text" required id="id" name="carId"><br><br></td>
+               <td><h3 style="color:silver;"><label for="rate">Rate for Make&nbsp;&nbsp;&nbsp;</label></h4></td>
+               <td><input required="required" type="text"  id="rate" name="rate" class="btn btn-default btn-lg" placeholder="enter make rate"><br><br></td>
            </tr>
-           
+          
            <tr>
-               <td colspan="2"> <input class="submit" type="submit" value="Assign"></a></td>
+
+               <td></td>
+               <td ><input class="btn btn-primary" type="submit" value="Add Car"> &nbsp;&nbsp;<a href="adminform.html"><button class="btn btn-primary" type="button">Go Back</button></a></td>
+
            </tr>
+
         </table>
         </center>
         </form>

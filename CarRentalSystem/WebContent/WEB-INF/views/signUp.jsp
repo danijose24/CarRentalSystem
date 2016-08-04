@@ -30,12 +30,13 @@
 	  <div id="banner">
 	  <div id="welcome">
 	   <center>
-	      <h1 style="color:white; font: bold; display: block;">Qiuck Cars</h1>
+	      <h1 style="color:white; font: bold; display: block;">Quick Cars</h1>
 	   </center> 		
 	   </div>	  	
 	  </div><!--close banner-->	
 	</header>
-	
+	<br>
+	<br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -90,7 +91,7 @@
 	    <h1 style="color:silver;">Happy Journy with Qiuck Cars</h1>
         <br>
        
-        <h4 align="right" style="color:silver;">If already have an account Login here<a href="logIn.html"> <input class="submit" type="submit" value="logIn"/></a></h4>
+        <h4 align="right" style="color:silver;">If already have an account Login here<a href="logIn.html"> <input class="btn btn-default" type="submit" value="logIn"/></a></h4>
        
      <form action="saveUser.html" modelAttribute="user" method="post" role="form">
                     
@@ -126,7 +127,7 @@
                
            <tr>
                <td></td>
-               <td> <center></center><input class="submit" type="submit" class="btn btn-default" value="Sign Up"> <a href="availableCar.html"><button class="submit" type="button" required="required">Go Back</button></a></center></td>
+               <td> <center></center><input class="btn btn-default" type="submit" class="btn btn-default" value="Sign Up"> <a href="availableCar.html"><button class="btn btn-default" type="button" required="required">Go Back</button></a></center></td>
            </tr>
         </table>
         </center>

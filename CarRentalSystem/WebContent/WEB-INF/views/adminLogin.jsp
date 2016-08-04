@@ -4,16 +4,21 @@
 
 <html>
 
-<head>
-  <title>CarRentalSystem</title>
+<head>  <title>CarRentalSystem</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  
   <link rel="stylesheet" type="text/css" href="css/style.css" />
-    
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   
   <!-- modernizr enables HTML5 elements and feature detects -->
+ 
+  <script src="js/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
 </head>
 
@@ -22,7 +27,7 @@
     <header>
 	  <div id="banner">
 	    <div id="welcome">
-	      <h2>Qiuck Cars</h2>
+	      <h2>Quick Cars</h2>
 	    </div><!--close welcome-->			  	
 	  </div><!--close banner-->	
 	</header>
@@ -94,7 +99,7 @@
                   </tr>
                     <tr>
                <td></td>
-               <td> <input class="submit" type="submit" class="btn btn-default btn-lg" value="LogIn"> <a href="mainHome.html"><button class="submit" class="btn btn-default" type="button">Go Back</button></a></td>
+               <td> <input class="btn btn-default" type="submit" value="LogIn"> <a href="mainHome.html"><button class="btn btn-default" type="button">Go Back</button></a></td>
            </tr>
                   
                </table>

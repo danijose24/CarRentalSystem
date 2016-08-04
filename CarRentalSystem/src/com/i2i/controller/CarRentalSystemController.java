@@ -38,18 +38,24 @@ public class CarRentalSystemController {
 	
 	private Booking confirmBooking = null;
 	
+	@RequestMapping("/mainHome")
+	public ModelAndView getHomeForm() {
+		System.out.println("entering into home page");
+		return new ModelAndView("homePage");
+	}
+	
 	@RequestMapping(value = "/signUp")
 	public ModelAndView getRegisterForm(@RequestParam("car") int carId) {
 		System.out.println("entering into sign up");
 		System.out.println(carId);
 		getCarId(carId);
-		return new ModelAndView("Register");
+		return new ModelAndView("signUp");
 	}
 	
 	@RequestMapping(value = "/goSignUp")
 	public ModelAndView goRegisterForm() {
 		System.out.println("entering into sign up");
-		return new ModelAndView("Register");
+		return new ModelAndView("signUp");
 	}
 	
 	private int tempCarId;
@@ -65,42 +71,38 @@ public class CarRentalSystemController {
 	@RequestMapping("/admin")
 	public ModelAndView getAdminForm() {
 		System.out.println("entering into admin");
-		return new ModelAndView("AdminLogin");
+		return new ModelAndView("adminLogin");
 	}
 	
 	@RequestMapping("/adminform")
 	public ModelAndView getAdmin() {
 		System.out.println("entering into  admin form");
-		return new ModelAndView("Admin");
+		return new ModelAndView("admin");
 	}
-	@RequestMapping("/mainHome")
-	public ModelAndView getHomeForm() {
-		System.out.println("entering into home page");
-		return new ModelAndView("HomePage");
-	}
+	
 	
 	@RequestMapping("/logIn")
 	public ModelAndView getLoginForm() {
 		System.out.println("entering into Login");
-		return new ModelAndView("Login");
+		return new ModelAndView("logIn");
 	}
 	
     @RequestMapping("/addCar")
 	public ModelAndView getCarAddForm() {
 		System.out.println("entering into add car");
-		return new ModelAndView("NewCarAdd");
+		return new ModelAndView("addNewCar");
 	}
 	
 	@RequestMapping("/assignMakeToCar")
 	public ModelAndView getAssignMakeToCar() {
 		System.out.println("entering into add make");
-		return new ModelAndView("AssignMakeToCar");
+		return new ModelAndView("assignMakeToCar");
 	}
 	
 	@RequestMapping("/addMake")
 	public ModelAndView getMakeAddForm() {
 		System.out.println("entering into add make");
-		return new ModelAndView("AddNewMake");
+		return new ModelAndView("addNewMake");
 	}
 	
 	@RequestMapping("/bookingSuccess")	
@@ -146,14 +148,14 @@ public class CarRentalSystemController {
 			BindingResult result) {
 		try {
 			System.out.println("Entering  Save User controller");
-            java.sql.Time createdAt = new java.sql.Time(new java.util.Date().getTime());
+            java.sql.Timestamp createdAt = new java.sql.Timestamp(new java.util.Date().getTime());
             user.setCreatedAt(createdAt);
 		    userService.addUser(user);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
 		}
 		System.out.println("Save User Data");
-		return new ModelAndView("Login");
+		return new ModelAndView("logIn");
 	}
 	
 	/*
@@ -162,13 +164,15 @@ public class CarRentalSystemController {
 	@RequestMapping("/carAddResult")
 	public ModelAndView addNewCar(@ModelAttribute("car") Car car,BindingResult result) {
 		try {
-		    System.out.println("Enter in to Save new Car");
-		    
+		    System.out.println(car);
+		    java.sql.Time createdAt = new java.sql.Time(new java.util.Date().getTime());
+            car.setCreatedAt(createdAt);
+            System.out.println(createdAt);
 		    carService.addCar(car);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
 		}
-		return new ModelAndView("Admin");
+		return new ModelAndView("admin");
 		
 	}
 	@Autowired
@@ -182,7 +186,7 @@ public class CarRentalSystemController {
 		} catch(UserDefinedException e) {
 			System.out.println(e);
 		}
-		return new ModelAndView("Admin");
+		return new ModelAndView("admin");
 		
 	}
 	
@@ -197,9 +201,9 @@ public class CarRentalSystemController {
             carService.assignMakeToCars(cars, make);
             System.out.println("make assigned successfully");
 		} catch(UserDefinedException e) {
-			System.out.println(e);
+			return new ModelAndView("assignMakeToCar");
 		}
-		return new ModelAndView("Admin");
+		return new ModelAndView("admin");
 	}
 		
 	@RequestMapping("/availableCar")
@@ -212,21 +216,24 @@ public class CarRentalSystemController {
 			e.printStackTrace();
 			System.out.println(e);
 		}
-		return new ModelAndView("AvailableCars", model);
+		return new ModelAndView("availableCars", model);
 	}
 	
 	@RequestMapping("/checkUser")
 	public ModelAndView getUser(@ModelAttribute("user") User user,
      	   BindingResult result)  {
 		try {
-			System.out.println("ENTER IN TO CHECK controller");
+			System.out.println("ENTER IN TO USER CHECK controller");
+			System.out.println("entering to check user");
+			System.out.println(user);
 			User checkUser = userService.findUser(user);
 			getUserid(checkUser);
+			System.out.println(checkUser);
 			if(null != checkUser) {
-				return new ModelAndView("BookingCar");
+				return new ModelAndView("bookingCar");
 			}
-		} catch (UserDefinedException e){
-			return new ModelAndView("ErrorInLogin");
+		} catch (UserDefinedException e) {
+			return new ModelAndView("errorInLogin");
 	    }
 		return null;
 	}
@@ -240,13 +247,13 @@ public class CarRentalSystemController {
 			if(adminEmail.equals(user.getEmail()) && adminPassword.equals(user.getPassword())) {
 	
 			    System.out.println("check admin controller");
-		    	return new ModelAndView("Admin");
+		    	return new ModelAndView("admin");
 			} else {
-				return new ModelAndView("AdminLogin");
+				return new ModelAndView("adminLogin");
 			}
 		} catch (Exception e) {
 			System.out.println(e);
-			return new ModelAndView("AdminLogin");
+			return new ModelAndView("adminLogin");
 	    }
 	}
 }

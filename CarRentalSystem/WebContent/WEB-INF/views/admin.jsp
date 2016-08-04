@@ -4,16 +4,22 @@
 
 <html>
 
-<head>
-  <title>CarRentalSystem</title>
+<head>  <title>CarRentalSystem</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
   <meta name="description" content="website description" />
-   <meta charset="utf-8"> 
   <meta name="keywords" content="website keywords, website keywords" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+  <!-- modernizr enables HTML5 elements and feature detects -->
  
-
-
+  <script src="js/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
   </head>
 
 <body>
@@ -21,11 +27,12 @@
     <header>
 	  <div id="banner">
 	    <div id="welcome">
-	      <h2>Qiuck Cars</h2>
+	      <h2>Quick Cars</h2>
 	    </div><!--close welcome-->			  	
 	  </div><!--close banner-->	
 	</header>
-	
+	<br>
+	<br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -33,7 +40,7 @@
           <li><a href="availableCar.html">Available Cars</a></li>
           <li><a href="logIn.html">LogIn</a></li>
           <li class="current"><a href="adminform.html">Admin</a></li>
-          
+          <li><a href="mainHome.html">LogOut</a></li>
         </ul>
       </div><!--close menubar-->	
     </nav>	
@@ -83,28 +90,21 @@
 	
 	  <div id="content">
         <div class="content_item">
-		
-		 <form action="carMakeResult.html" method="post">
-          <center>
-            <h1>Add New Make </h1>
-        <table>
-        
-           <tr>
-               <td>Make Name</td>
-               <td><input type="text" required pattern="[a-zA-Z0-9]*"  name="name" ><br><br></td>
-           </tr>
-           
-           <tr>
-               <td>Rate for Make</td>
-               <td><input required pattern="[0-9]*" type="text" name="rate"><br><br></td>
-           </tr>
-           
-           <tr>
-               <td colspan="2"> <input class="submit" type="submit" value="Add Make"></a></td>
-           </tr>
-        </table>
-        </center>
-        </form>
+		  <h1 style="color: silver;">WELCOME ADMIN</h1> 
+		 <center> 
+		<table cellspacing="2">
+		    <tr>
+               <td><a href="addCar.html"><img src="images/addcar.jpg" alt="add car image" height="300px" width="300px"></a></td>
+               <td><a href="addMake.html"><img src="images/make.jpg" alt="add Make image" height="300px" width="300px"></a></td>	  
+		    </tr>
+		   
+		    <tr>
+		    <td colspan="2"><center><a href="assignMakeToCar.html"><img src="images/AssignMaketoCar.jpg" alt="Assign a make to a car image" height="300px" width="300px"></a></center></td>
+		    
+		    </tr>
+		</table>
+	</center>
+	</div><!--close site_content-->  	
   
     <footer>
 	 <center><h3>WE ARE HAPPY TO HELP YOU </h3></center><br>

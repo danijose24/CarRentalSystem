@@ -4,16 +4,22 @@
 
 <html>
 
-<head>
-  <title>CarRentalSystem</title>
+<head>  <title>CarRentalSystem</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
   <meta name="description" content="website description" />
-   <meta charset="utf-8"> 
   <meta name="keywords" content="website keywords, website keywords" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  
   <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+  <!-- modernizr enables HTML5 elements and feature detects -->
  
-
-
+  <script src="js/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
   </head>
 
 <body>
@@ -21,11 +27,12 @@
     <header>
 	  <div id="banner">
 	    <div id="welcome">
-	      <h2>Qiuck Cars</h2>
+	      <h2>Quick Cars</h2>
 	    </div><!--close welcome-->			  	
 	  </div><!--close banner-->	
 	</header>
-	
+	<br>
+	<br>
 	<nav>
 	  <div id="menubar">
         <ul id="nav">
@@ -55,8 +62,8 @@
 		<div class="sidebar">
           <div class="sidebar_item">
              <h2>Our Features</h2>
-                 <p>&#9755;Airport Transfer</p>
-                 <p>&#9755;Intercity Travel</p>
+                 <p>&#9755; Airport Transfer</p>
+                 <p>&#9755; Intercity Travel</p>
                  <p>&#9755; Local usage.</p>
                  <p>&#9755; Daily rental.</p>
                  <p>&#9755; Courtesy Pickup and Drop.</p>
@@ -68,7 +75,7 @@
           <div class="sidebar_item">
             <h2>Offer For You</h2>
             <h3>Free Trip</h3>
-            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India .</p>         
+            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India.</p>         
 		  </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
 		  		
@@ -76,34 +83,36 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmailcom</a></p>
+            <p>Email: quickCars@gmail.com</a></p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	
 	
 	  <div id="content">
         <div class="content_item">
-		  <h1>WELCOME TO ADMIN PAGE</h1> 
-		 <form action="carAddResult.html" method="post">
+		
+		 <form action="saveAssignMakeToCar.html" method="post">
           <center>
-            <h1>New Car Add </h1>
-         <table>
+            <h1 style="color: silver;">ASSIGN MAKE TO CAR</h1>
+        <table>
+        
            <tr>
-               <td>CAR Type</td>
-               <td><input type="text" required pattern="[0-9]*"  name="carType" ><br><br></td>
+               <td style="color: silver;"><h3>Make ID&nbsp;&nbsp;&nbsp;</h3></td>
+               <td><input type="text" required id="id" name="makeId" class="btn btn-default btn-lg" placeholder="enter make id"></td>
            </tr>
            
            <tr>
-               <td>Car Register Number</td>
-               <td><input required pattern="["[a-zA-Z0-9]*" type="text" name="carNumber"><br><br></td>
+               <td style="color: silver;"><h3>CAR ID&nbsp;&nbsp;&nbsp;</h3></td>
+               <td><input type="text" required id="id" name="carId" class="btn btn-default btn-lg" placeholder="enter car id"></td>
            </tr>
            
            <tr>
-               <td colspan="2"> <input class="submit" type="submit" value="Add Car"></a></td>
+               <td></td>
+               <td> <input class="btn btn-primary" type="submit" value="Assign"></a></td>
            </tr>
         </table>
         </center>
-        </form> 	
+        </form>
   
     <footer>
 	 <center><h3>WE ARE HAPPY TO HELP YOU </h3></center><br>
