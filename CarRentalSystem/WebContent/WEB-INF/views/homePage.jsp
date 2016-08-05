@@ -42,11 +42,11 @@
       <div class="slideshow">
 	    <ul class="slideshow">
           <li class="show"><img width="940" height="300" src="images/car1.jpg" alt="&quot;Happy Journy With Us&quot;" /></li>
-          <li><img width="940" height="300" src="images/car2.jpg" alt="&quot;Pay Less Drive More&quot;" /></li>
-          <li><img width="940" height="300" src="images/car3.jpg" alt="&quot;Feel Safe we will be With u&quot;" /></li>
-          <li><img width="940" height="300" src="images/car4.jpg" alt="&quot;Every Journy thought us lot&quot;" /></li>
-          <li><img width="940" height="300" src="images/car5.png" alt="&quot;Provide our Best Service to U&quot;" /></li>
-          <li><img width="940" height="300" src="images/car6.jpg" alt="&quot;Have a great Journy&quot;" /></li>
+          <li><img width="940" height="400" src="images/car2.jpg" alt="&quot;Pay Less Drive More&quot;" /></li>
+          <li><img width="940" height="400" src="images/car3.jpg" alt="&quot;Feel Safe we will be With u&quot;" /></li>
+          <li><img width="940" height="400" src="images/car4.jpg" alt="&quot;Every Journy thought us lot&quot;" /></li>
+          <li><img width="940" height="400" src="images/car5.png" alt="&quot;Provide our Best Service to U&quot;" /></li>
+          <li><img width="940" height="400" src="images/car6.jpg" alt="&quot;Have a great Journy&quot;" /></li>
         </ul> 
 	  </div><!--close slideshow-->	
 	

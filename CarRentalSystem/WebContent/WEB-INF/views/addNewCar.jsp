@@ -63,8 +63,8 @@
 		<div class="sidebar">
           <div class="sidebar_item">
              <h2>Our Features</h2>
-                 <p>&#9755;Airport Transfer</p>
-                 <p>&#9755;Intercity Travel</p>
+                 <p>&#9755; Airport Transfer</p>
+                 <p>&#9755; Intercity Travel</p>
                  <p>&#9755; Local usage.</p>
                  <p>&#9755; Daily rental.</p>
                  <p>&#9755; Courtesy Pickup and Drop.</p>
@@ -76,7 +76,7 @@
           <div class="sidebar_item">
             <h2>Offer For You</h2>
             <h3>Free Trip</h3>
-            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India .</p>         
+            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India.</p>         
 		  </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
 		  		
@@ -84,7 +84,7 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmailcom</a></p>
+            <p>Email: quickCars@gmail.com</a></p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	
@@ -98,34 +98,19 @@
               <tr>
                   <td><img alt="Suv" src="images/Sedan1.png" width="100px" height="100px">&nbsp;</td>
                   <td><img alt="Suv" src="images/SUV.png" width="100px" height="100px">&nbsp;</td>
-                  <td><img alt="Suv" src="images/Van.png" width="100px" height="100px">&nbsp;</td>
                   <td><img alt="Suv" src="images/Wagon.png" width="100px" height="100px">&nbsp;</td>
-                  <td><img alt="Suv" src="images/Diesel2.png" width="100px" height="100px">&nbsp;</td>
+                  <td><img alt="Suv" src="images/HatchBack.png" width="100px" height="100px">&nbsp;</td>
                   
               </tr>
               <tr>
                   <td style="color: silver;"><center>Sedan</center></td>
                   <td style="color: silver;"><center>SUV</center></td>
-                  <td style="color: silver;"><center>Van</center></td>
                   <td style="color: silver;"><center>Wagon</center></td>
-                  <td style="color: silver;"><center>Disel</center></td>
+                  <td style="color: silver;"><center>Hatch Back</center></td>
+                  
               </tr><br>
               
-              <tr>
-                  <td><img alt="Suv" src="images/coupe.png" width="100px" height="100px">&nbsp;</td>
-                  <td><img alt="Suv" src="images/HatchBack.png" width="100px" height="100px">&nbsp;</td>
-                  <td><img alt="Suv" src="images/CrossOver.png" width="100px" height="100px">&nbsp;</td>
-                  <td><img alt="Suv" src="images/sports2.png" width="100px" height="100px">&nbsp;</td>
-                  <td><img alt="Suv" src="images/convertible2.png" width="100px" height="100px">&nbsp;</td>
-                   
-              </tr>
-               <tr>
-                  <td style="color: silver;"><center>Coupe</center></td>
-                  <td style="color: silver;"><center>Hatch Back</center></td>
-                  <td style="color: silver;"><center>Cross Over</center></td>
-                  <td style="color: silver;"><center>Sports Car</center></td>
-                  <td style="color: silver;"><center>Convertible Car</center></td>
-              </tr>
+             
           </table>
             
          <table>
@@ -135,15 +120,9 @@
              <select class="form-control" id="carType" name="carType">
                  <option value="4">Sedan</option>
                  <option value="6">SUV</option>
-                 <option value="10">Van</option>
                  <option value="5">Wagon</option>
-                 <option value="4">Disel</option>
-                 <option value="2">Coupe</option>
                  <option value="6">Hatch Back</option>
-                 <option value="7">Crose Over</option>
-                 <option value="2">Sports Car</option>
-                 <option value="4">Convertible</option>
-                 
+                
              </select>   
                  
            </td>

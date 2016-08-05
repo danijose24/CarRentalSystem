@@ -42,7 +42,7 @@ public class CarRentalSystemController {
 	public ModelAndView mainHomePage() {
 		System.out.println(currentAdmin);
 		currentAdmin = null;
-		tempUser = null;
+		currentUser = null;
 		System.out.println("entering into home page");
 		return new ModelAndView("homePage");
 	}
@@ -66,9 +66,9 @@ public class CarRentalSystemController {
 		tempCarId = carId;
 	}
 	
-	private User tempUser = null;
+	private User currentUser = null;
 	public void setUser(User user) {
-		tempUser = user;
+		currentUser = user;
 	}
 	
 	@RequestMapping("/admin")
@@ -146,7 +146,7 @@ public class CarRentalSystemController {
 	    } catch (UserDefinedException e) {
 		    System.out.println(e);
         }
-		if (null == tempUser) {
+		if (null == currentUser) {
 			return new ModelAndView("logIn");
 		} else {
 			return new ModelAndView("confirmBooking", model);
@@ -159,12 +159,12 @@ public class CarRentalSystemController {
 		    System.out.println("entering into final booking");
 		    Car car = carService.findCarById(tempCarId);
 		    confirmBooking.setCar(car);
-	    	confirmBooking.setUser(tempUser);
+	    	confirmBooking.setUser(currentUser);
 		    bookingService.addBooking(confirmBooking);
 	    } catch (UserDefinedException e) {
 		    System.out.println(e);
         }
-		if (null == tempUser) {
+		if (null == currentUser) {
 			return new ModelAndView("logIn");
 		} else {
 			return new ModelAndView("payment");
@@ -257,7 +257,7 @@ public class CarRentalSystemController {
 			User checkUser = userService.findUser(user);
 			setUser(checkUser);
 			System.out.println(checkUser);
-			if(null != checkUser && null != tempUser) {
+			if(null != checkUser && null != currentUser) {
 				return new ModelAndView("bookingCar");
 			} else {
 				return new ModelAndView("logIn");
