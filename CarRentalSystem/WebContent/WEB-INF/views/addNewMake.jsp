@@ -109,7 +109,7 @@
            <tr>
 
                <td></td>
-               <td ><input class="btn btn-primary" type="submit" value="Add Car"> &nbsp;&nbsp;<a href="adminform.html"><button class="btn btn-primary" type="button">Go Back</button></a></td>
+               <td ><input class="btn btn-primary" type="submit" value="Add Make"> &nbsp;&nbsp;<a href="adminform.html"><button class="btn btn-primary" type="button">Go Back</button></a></td>
 
            </tr>
 

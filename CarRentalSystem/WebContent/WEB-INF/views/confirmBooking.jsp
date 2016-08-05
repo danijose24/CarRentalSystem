@@ -37,7 +37,7 @@
         <ul id="nav">
           <li><a href="mainHome.html">Home</a></li>
           <li class="current"><a href="availableCar.html">Available Cars</a></li>
-         
+         <li><a href="mainHome.html">Log Out</a></li>
           
         </ul>
       </div><!--close menubar-->	

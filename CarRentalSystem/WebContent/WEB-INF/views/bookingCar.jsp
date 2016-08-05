@@ -1,28 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
-
-<head>  <title>CarRentalSystem</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-  <meta name="description" content="website description" />
-  <meta name="keywords" content="website keywords, website keywords" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <head>
   
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <meta name="description" content="website description" />
+   <meta name="keywords" content="website keywords, website keywords" />
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
   
-  <!-- modernizr enables HTML5 elements and feature detects -->
+   <link rel="stylesheet" type="text/css" href="css/style.css" />
+   <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+   <!-- modernizr enables HTML5 elements and feature detects -->
  
-  <script src="js/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
-</head>
-
-<body>
+   <script src="js/jquery.min.js"></script>
+   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+   <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>
+  
+    <!-- Load jQuery from Google's CDN -->
+    <!-- Load jQuery UI CSS  -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    
+    <!-- Load jQuery JS -->
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <!-- Load jQuery UI Main JS  -->
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    
+    <!-- Load SCRIPT.JS which will create datepicker for input field  -->
+    
+  </head>
+  <body>
   <div id="main">
     <header>
 	  <div id="banner">
@@ -40,6 +47,7 @@
           <li><a href="availableCar.html">Available Cars</a></li>
           <li><a href="logIn.html">LogIn</a></li>
           <li class="current"><a href="logIn.html">Book A Car</a></li>
+          <li><a href="mainHome.html">Log Out</a></li>
        </ul>
       </div><!--close menubar-->	
    
@@ -61,14 +69,14 @@
 		<div class="sidebar">
           <div class="sidebar_item">
             <h2>Our Service</h2>
-            <p>Welcome to our website.this is the great palce to book a car for your drive to any palce.we are providing the Best Service in car Rending</p>
+            <p>Welcome to our website.This is the great palce to book a car for your drive to any palce.we are providing the Best Service in car Rending</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->     		
 		<div class="sidebar">
           <div class="sidebar_item">
             <h2>Offer For You</h2>
             <h3>Free Trip</h3>
-            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India .</p>         
+            <p>Every month we are selecting some lucky lots to provide the free trip to any were across India.</p>         
 		  </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
 		  		
@@ -76,7 +84,7 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmailcom</p>
+            <p>Email: quickCars@gmail.com</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	
@@ -87,14 +95,15 @@
             <form action="bookingSuccess.html" modelAttribute="booking" method="post">
         <center><h2 style="color:silver;">Place your Booking Here</h2></center>
        <center>
-       <table>             
+    <table>             
            <tr>
                <td><h3 style="color:silver"> Pick Date&nbsp;&nbsp;&nbsp;&nbsp;</h3></td>
-               <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="pickupDate" class="form-control" placeholder="MM/DD/YYYY"></td>
+               <td><input required style="color:black;" type="text" id="pickupDate" name="pickupDate" class="form-control" placeholder="MM/DD/YYYY"/> </td>
            </tr>         
            <tr>
                <td><h3 style="color:silver">Drop Date</h3></td>
-               <td><input required pattern="^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$" type="text" name="dropDate"  class="form-control" placeholder="MM/DD/YYYY"></td>
+               <td><input required style="color:black;" type="text" id="dropDate" name="dropDate" class="form-control" placeholder="MM/DD/YYYY"/> </td>
+              
            </tr>   
             <tr>
                <td><h3 style="color:silver"> Address</h3></td>
@@ -104,7 +113,10 @@
                      <td> <input class="btn btn-default " type="submit" value="Confirm Booking"></td>
            </tr>
         </table>
-        </center>
+    
+    
+    
+      </center>
     
     </form>
 
@@ -119,10 +131,33 @@
   
   </div><!--close main-->
   
-  <!-- javascript at the bottom for fast page loading -->
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/image_slide.js"></script>
+  
   </div>
-</body>
-</html>
+  </body>
+  <script>
+  $(document).ready(
+  
+  /* This is the function that will get executed after the DOM is fully loaded */
+  function () {
+    $( "#pickupDate" ).datepicker({
+      changeMonth: true,//this option for allowing user to select month
+      changeYear: true //this option for allowing user to select from year range
+    });
+  }
 
+);
+  </script>
+  <script>
+  $(document).ready(
+  
+  /* This is the function that will get executed after the DOM is fully loaded */
+  function () {
+    $( "#dropDate" ).datepicker({
+      changeMonth: true,//this option for allowing user to select month
+      changeYear: true //this option for allowing user to select from year range
+    });
+  }
+
+);
+  </script>
+</html>
