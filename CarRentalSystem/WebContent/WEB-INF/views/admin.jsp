@@ -6,7 +6,6 @@
 
 <head>  <title>CarRentalSystem</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
   <meta name="description" content="website description" />
   <meta name="keywords" content="website keywords, website keywords" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -69,7 +68,7 @@
                  <p>&#9755; Courtesy Pickup and Drop.</p>
                  <p>&#9755; Year-round promotions.</p>
                  <p>&#9755; On the road assistance 24 hours a day.</p>
-                 </div></p><!--close sidebar_item--> 
+                 </div><!--close sidebar_item--> 
         </div><!--close sidebar-->     		
 		<div class="sidebar">
           <div class="sidebar_item">
@@ -83,7 +82,7 @@
           <div class="sidebar_item">
             <h2>Contact</h2>
             <p>Phone: +044 567891</p>
-            <p>Email: quickCars@gmail.com</a></p>
+            <p>Email: quickCars@gmail.com</p>
           </div><!--close sidebar_item--> 
         </div><!--close sidebar-->
        </div><!--close sidebar_container-->	
@@ -105,12 +104,12 @@
 		</table>
 	</center>
 	</div><!--close site_content-->  	
-  
+  </div>
     <footer>
 	 <center><h3>WE ARE HAPPY TO HELP YOU </h3></center><br>
 	 
 	 </footer> 
-  
+  </div>
   </div><!--close main-->
   
   <!-- javascript at the bottom for fast page loading -->

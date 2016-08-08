@@ -67,6 +67,7 @@ public class CarDao extends GenericDao {
 	    try {
 	        transaction = session.beginTransaction();
 	        car = (Car)session.get(Car.class, carId);
+	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this car Id: "+carId, e);
 	    } finally {
@@ -120,6 +121,7 @@ public class CarDao extends GenericDao {
 	    try {
 	        transaction = session.beginTransaction();
 	        List<Car> cars = session.createQuery("FROM Car").list();
+	        transaction.commit();
 	        return cars;
 	    } catch (HibernateException e) {
 	    	e.printStackTrace();

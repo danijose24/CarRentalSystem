@@ -70,6 +70,7 @@ public class UserDao extends GenericDao {
 	    try {
 	        transaction = session.beginTransaction();
 	        user = (User)session.get(User.class, userId);
+	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this user Id: "+userId, e);
 	    } finally {
@@ -123,6 +124,7 @@ public class UserDao extends GenericDao {
 	    try {
 	        transaction = session.beginTransaction();
 	        List<User> users = session.createQuery("FROM User").list();
+	        transaction.commit();
 	        return users;
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("User details can not be Displayed!...",e);

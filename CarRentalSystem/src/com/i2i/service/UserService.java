@@ -30,16 +30,8 @@ public class UserService {
 	 * here we create an object for an user using User model.
 	 * user Object is passed as a parameter to UserDao class to insert into the database.
 	 * </p>
-	 * @param name         
-	 *         name should be in string.
-	 * @param phoneNumber
-	 *         phoneNumber should be in string.
-	 * @param email
-	 *         email should be in string.
-	 * @param password
-	 *         password should be in string.
-	 * @param address
-	 *         address should be in string.
+	 * @param user         
+	 *         user should be in User.
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */

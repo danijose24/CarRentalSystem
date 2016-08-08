@@ -37,7 +37,6 @@
           <li><a href="mainHome.html">Home</a></li>
           <li class="current"><a href="availableCar.html">Available Cars</a></li>
          
-          
         </ul>
       </div><!--close menubar-->	
     </nav>	

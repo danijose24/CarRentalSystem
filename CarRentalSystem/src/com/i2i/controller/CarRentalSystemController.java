@@ -24,6 +24,12 @@ import com.i2i.model.Make;
 import com.i2i.service.MakeService;
 import com.i2i.exception.UserDefinedException;
 
+/**
+ * <h1> CarRentalSystemController</h1>
+ * 
+ * @author sudhakar
+ * @created 25-07-2016
+ */
 @Controller
 public class CarRentalSystemController {
 	
@@ -36,90 +42,148 @@ public class CarRentalSystemController {
 	@Autowired
     CarService carService;
 	
-	private Booking confirmBooking = null;
+	@Autowired
+    MakeService makeService ;
 	
+	private Booking confirmBooking = null;
+	private User currentUser = null;
+	private int tempCarId ;
+	private String currentAdmin = null;
+	
+	/**
+	 * <p>The main home page method is used to show home page of Car Rental.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to home page.
+	 */
 	@RequestMapping("/mainHome")
 	public ModelAndView mainHomePage() {
-		System.out.println(currentAdmin);
 		currentAdmin = null;
 		currentUser = null;
-		System.out.println("entering into home page");
 		return new ModelAndView("homePage");
 	}
-	
+
+	/**
+	 * <p>The sign up method is used to show sign up page for user registration.</p>
+	 * 
+	 * @param carId
+	 *         carId is used to find which car is going to book.
+	 * @return ModelAndView
+	 *          It returns to sign up page.
+	 */
 	@RequestMapping(value = "/signUp")
 	public ModelAndView signUp(@RequestParam("car") int carId) {
-		System.out.println("entering into sign up");
-		System.out.println(carId);
-		setCarId(carId);
+		tempCarId = carId;
 		return new ModelAndView("signUp");
 	}
 	
+	/**
+	 * <p>The go sign up method is used to show sign up page for user registration.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to sign up page.
+	 */
 	@RequestMapping(value = "/goSignUp")
 	public ModelAndView goSignUp() {
-		System.out.println("entering into sign up");
 		return new ModelAndView("signUp");
 	}
 	
-	private int tempCarId ;
-	public void setCarId(int carId) {
-		tempCarId = carId;
-	}
-	
-	private User currentUser = null;
-	public void setUser(User user) {
-		currentUser = user;
-	}
-	
+	/**
+	 * <p>The admin login method is used to show admin log in page for admin login.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to the admin login page.
+	 */
 	@RequestMapping("/admin")
 	public ModelAndView adminLogIn() {
-		System.out.println("entering into admin");
 		return new ModelAndView("adminLogin");
 	}
 	
+	/**
+	 * <p>The admin method is used to show admin page for admin.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to the admin page.
+	 */
 	@RequestMapping("/adminform")
 	public ModelAndView admin() {
-		System.out.println("entering into  admin form");
 		return new ModelAndView("admin");
 	}
 	
-	
+	/**
+	 * <p>The login form method is used to show login page for user login.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It  returns to the login page.
+	 */
 	@RequestMapping("/logIn")
 	public ModelAndView logInForm() {
-		System.out.println("entering into Login");
 		return new ModelAndView("logIn");
 	}
 	
+	/**
+	 * <p>The add car method is used to show add new car page.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to add new car page if admin is login.
+	 * @return ModelAndView
+	 *          It returns to admin login page if admin is not login.
+	 */
     @RequestMapping("/addCar")
 	public ModelAndView addCar() {
     	if (null == currentAdmin) {
 			return new ModelAndView("adminLogin");
 		} else {
-		    System.out.println("entering into add car");
 		    return new ModelAndView("addNewCar");
 		}
 	}
 	
+    /**
+     * <p>The assign make to car method is used to show assign make to car page.</p>
+     * 
+     * @return ModelAndView
+	 *          It returns to admin login page if admin is not login.
+     * @return ModelAndView
+     *          It returns to assign make to login page if admin is login.
+     */
 	@RequestMapping("/assignMakeToCar")
 	public ModelAndView assignMakeToCar() {
 		if (null == currentAdmin) {
 			return new ModelAndView("adminLogin");
 		} else {
-		    System.out.println("entering into add make");
 		    return new ModelAndView("assignMakeToCar");
 		}
 	}
 	
+	/**
+	 * <p>The add make method is used to show add make page.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to admin login page if admin is not login.
+	 * @return ModelAndView
+	 *          It returns to add new make page if admin is log in.
+	 */
 	@RequestMapping("/addMake")
 	public ModelAndView addMake() {
 		if (null == currentAdmin) {
 			return new ModelAndView("adminLogin");
 		} else {
-		    System.out.println("entering into add make");
 		    return new ModelAndView("addNewMake");
 		}
 	}
 	
+	/**
+	 * <p>The booking method is used to show booking page.</p>
+	 * 
+	 * @param booking
+	 *         booking is used to find booking details from user.
+	 * @param result
+	 *         result it holds the result of binding page.
+	 * @return ModelAndView
+	 *          It returns to confirmBooking page if user is login.
+	 * @return ModelAndView
+	 *          It returns to login page if user is logout.
+	 */
 	@RequestMapping("/bookingSuccess")	
 	public ModelAndView booking(@ModelAttribute("booking") Booking booking,BindingResult result) {
 	    
@@ -130,11 +194,6 @@ public class CarRentalSystemController {
 		    Car car = carService.findCarById(tempCarId);
 		    Date d1 = booking.getPickupDate();
             Date d2 = booking.getDropDate();
-            
-            System.out.println(booking.getPickupDate());
-            System.out.println(booking.getDropDate());
-            System.out.println(booking.getAddress());
-            
             long difference = d2.getTime() - d1.getTime();
             int dayDifference = (int) (long) difference;
             int totalDays = dayDifference / (24 * 60 * 60 * 1000);
@@ -153,10 +212,17 @@ public class CarRentalSystemController {
 		}
 	}
 	
+	/**
+	 * <p>The finalBooking method is used to show finalBooking page.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to payment page if user is login.
+	 * @return ModelAndView
+	 *          It returns to login page if user is logout.
+	 */
 	@RequestMapping("/finalBooking")
 	public ModelAndView finalBooking() {
 		try {
-		    System.out.println("entering into final booking");
 		    Car car = carService.findCarById(tempCarId);
 		    confirmBooking.setCar(car);
 	    	confirmBooking.setUser(currentUser);
@@ -171,23 +237,38 @@ public class CarRentalSystemController {
 		}
 	}
 	
+	/**
+	 * <p>The saveUserData method is used to save user details.</p>
+	 * 
+	 * @param user
+	 *         It holds the details of user.
+	 * @param result
+	 *         It holds the result of binding page.
+	 * @return ModelAndView
+	 *          It returns to login page if user details are added.
+	 */
 	@RequestMapping("/saveUser")
 	public ModelAndView saveUserData(@ModelAttribute("user") User user,
 			BindingResult result) {
 		try {
-			System.out.println("Entering  Save User controller");
             java.sql.Timestamp createdAt = new java.sql.Timestamp(new java.util.Date().getTime());
             user.setCreatedAt(createdAt);
 		    userService.addUser(user);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
 		}
-		System.out.println("Save User Data");
 		return new ModelAndView("logIn");
 	}
 	
-	/*
-	 * controller to create a new car
+	/**
+	 * <p>The addNewCar method is used to show add new car page.</p>
+	 * 
+	 * @param car
+	 *         It holds the details of car.
+	 * @param result
+	 *         It holds the result of binding page.
+	 * @return ModelAndView
+	 *          It returns to the admin page if car details are added.
 	 */
 	@RequestMapping("/carAddResult")
 	public ModelAndView addNewCar(@ModelAttribute("car") Car car,BindingResult result) {
@@ -203,13 +284,20 @@ public class CarRentalSystemController {
 		return new ModelAndView("admin");
 		
 	}
-	@Autowired
-    MakeService makeService ;
-	
+		
+	/**
+	 * <p>The addNewMake method is used to show add new make page.</p>
+	 * 
+	 * @param make
+	 *         It holds the details of make.
+	 * @param result
+	 *         It holds the result of binding page.
+	 * @return ModelAndView
+	 *          It returns to admin page if make details are added.
+	 */
 	@RequestMapping("/carMakeResult")
-	public ModelAndView addNewCar(@ModelAttribute("make") Make make,BindingResult result) {
+	public ModelAndView addNewMake(@ModelAttribute("make") Make make,BindingResult result) {
 		try {
-		    System.out.println("Enter in to MAKEnew Car");
 		    makeService.addMake(make);
 		} catch(UserDefinedException e) {
 			System.out.println(e);
@@ -218,27 +306,40 @@ public class CarRentalSystemController {
 		
 	}
 	
+	/**
+	 * <p>The assignMakeToCar method is used to show assign Make To Car page.</p>
+	 * 
+	 * @param makeId
+	 *         It holds the make id.
+	 * @param carId
+	 *         It holds the car id.
+	 * @return ModelAndView
+	 *          It returns to admin page if make is assigned to car.
+	 */
 	@RequestMapping(value = "/saveAssignMakeToCar", method=RequestMethod.POST)
 	public ModelAndView assignMakeToCar(@RequestParam("makeId") int makeId , @RequestParam("carId") int carId) {
 		try {
-		    System.out.println("Enter in to assigning");
             Make make = makeService.findMakeById(makeId);
             Car car = carService.findCarById(carId);
 		    Set<Car> cars = new HashSet<Car>();
 		    cars.add(car);
             carService.assignMakeToCars(cars, make);
-            System.out.println("make assigned successfully");
 		} catch(UserDefinedException e) {
-			return new ModelAndView("assignMakeToCar");
+			System.out.println(e);
 		}
 		return new ModelAndView("admin");
 	}
 		
+	/**
+	 * <p>The carList method is used to show availableCars page.</p>
+	 * 
+	 * @return ModelAndView
+	 *          It returns to availableCars page.
+	 */
 	@RequestMapping("/availableCar")
-	public ModelAndView getUserList() {
+	public ModelAndView carList() {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
-			System.out.println("entering into car list");
 		    model.put("car", carService.totalCarsDetails());
 		} catch(UserDefinedException e) {
 			e.printStackTrace();
@@ -247,16 +348,22 @@ public class CarRentalSystemController {
 		return new ModelAndView("availableCars", model);
 	}
 	
+	/**
+	 * <p>The checkUser method is used to check whether the user is already registered or not.</p>
+	 * 
+	 * @param user
+	 *         It holds the details of user. 
+	 * @param result
+	 *         It holds the result of binding page.
+	 * @return ModelAndView
+	 *          It returns to booking Car page if user is login.
+	 */
 	@RequestMapping("/checkUser")
-	public ModelAndView getUser(@ModelAttribute("user") User user,
+	public ModelAndView checkUser(@ModelAttribute("user") User user,
      	   BindingResult result) {
 		try {
-			System.out.println("ENTER IN TO USER CHECK controller");
-			System.out.println("entering to check user");
-			System.out.println(user);
 			User checkUser = userService.findUser(user);
-			setUser(checkUser);
-			System.out.println(checkUser);
+			currentUser = checkUser;
 			if(null != checkUser && null != currentUser) {
 				return new ModelAndView("bookingCar");
 			} else {
@@ -267,10 +374,20 @@ public class CarRentalSystemController {
 	    }
 	}
 	
-	String currentAdmin = null;
-	
+	/**
+	 * <p>The checkAdmin method is used to check whether the admin is login or not.</p>
+	 * 
+	 * @param user
+	 *         It holds the details of user admin.
+	 * @param result
+	 *         It holds the result of binding page.
+	 * @return ModelAndView
+	 *          It returns to admin page if admin name and password is correct.
+	 * @return ModelAndView
+	 *          It returns to admin login page if admin name and password is wrong.
+	 */
 	@RequestMapping("/checkAdmin")
-	public ModelAndView getAdmin(@ModelAttribute("user") User user,
+	public ModelAndView checkAdmin(@ModelAttribute("user") User user,
      	   BindingResult result)  {
 		System.out.println(user);
 		try {
@@ -278,7 +395,6 @@ public class CarRentalSystemController {
 			String adminPassword = "123456";
 			if(adminEmail.equals(user.getEmail()) && adminPassword.equals(user.getPassword())) {
 				currentAdmin = user.getEmail();
-			    System.out.println("check admin controller");
 		    	return new ModelAndView("admin");
 			} else {
 				return new ModelAndView("adminLogin");
@@ -287,6 +403,5 @@ public class CarRentalSystemController {
 			System.out.println(e);
 			return new ModelAndView("adminLogin");
 	    }
-	}
-	
+	}	
 }

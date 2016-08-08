@@ -5,8 +5,6 @@ import java.util.List;
 import org.hibernate.HibernateException; 
 import org.hibernate.Session; 
 import org.hibernate.Transaction;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.springframework.stereotype.Repository;
 
 import com.i2i.model.Booking;
@@ -70,6 +68,7 @@ public class BookingDao extends GenericDao {
 	    try {
 	        transaction = session.beginTransaction();
 	        booking = (Booking)session.get(Booking.class, bookingId);
+	        transaction.commit();
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Can not able to find for this booking Id: "+bookingId, e);
 	    } finally {
@@ -123,6 +122,7 @@ public class BookingDao extends GenericDao {
 	    try {
 	        transaction = session.beginTransaction();
 	        List<Booking> bookings = session.createQuery("FROM Booking").list();
+	        transaction.commit();
 	        return bookings;
 	    } catch (HibernateException e) {
 	        throw new UserDefinedException("Booking details can not be Displayed!...",e);

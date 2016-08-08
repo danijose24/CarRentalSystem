@@ -36,12 +36,8 @@ public class BookingService {
 	 * booking Object is passed as a parameter to BookingDao class to insert into the database.
 	 * </p>
 	 * 
-     * @param pickupDate
-	 *         pickupDate should be in Date.
-	 * @param dropDate
-	 *         dropDate should be in Date.
-	 * @param amount
-	 *         amount should be in int.
+     * @param booking
+	 *         booking should be Booking.
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */

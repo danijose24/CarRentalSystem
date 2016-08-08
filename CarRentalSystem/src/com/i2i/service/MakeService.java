@@ -30,12 +30,8 @@ public class MakeService {
 	 * here we create an object for an make using Make model.
 	 * make Object is passed as a parameter to makeDao class to insert into the database.
 	 * </p>
-     * @param id         
-	 *         id should be in string.
-	 * @param name
-	 *         name should be in string.
-	 * @param rate
-	 *         rate should be in int.
+     * @param make         
+	 *         make should be in Make.
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */

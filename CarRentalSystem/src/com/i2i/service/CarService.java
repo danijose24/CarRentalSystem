@@ -31,12 +31,8 @@ public class CarService {
 	 * here we create an object for an car using Car model.
 	 * car Object is passed as a parameter to CarDao class to insert into the database.
 	 * </p>
-	 * @param id         
-	 *         id should be in string.
-	 * @param carType
-	 *         carType should be in int.
-	 * @param carNumber
-	 *         carNumber should be in string.
+	 * @param car         
+	 *         car should be in Car.
 	 * @throws UserDefinedException
 	 *          If there is failed in inserting operation.           
 	 */
