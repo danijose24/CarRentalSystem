@@ -38,10 +38,12 @@ public class CarDao extends GenericDao {
 	    Transaction transaction = null;
 	    Session session = openSession();
 	    try {
+	    	System.out.println(car);
 	        transaction = session.beginTransaction();
 	        session.save(car);
 	        transaction.commit();
 	    } catch (HibernateException e) {
+	    	e.printStackTrace();
 	        throw new UserDefinedException("Car details added Failed!...",e);
 	    } finally {
 	        closeSession(session);

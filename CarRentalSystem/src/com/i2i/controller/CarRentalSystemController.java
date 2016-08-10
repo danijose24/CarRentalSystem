@@ -60,6 +60,8 @@ public class CarRentalSystemController {
 	public ModelAndView mainHomePage() {
 		currentAdmin = null;
 		currentUser = null;
+		System.out.println("entering into main home");
+		System.out.println("entering into 2nd main home");
 		return new ModelAndView("homePage");
 	}
 
@@ -340,6 +342,7 @@ public class CarRentalSystemController {
 	public ModelAndView carList() {
 		Map<String, Object> model = new HashMap<String, Object>();
 		try {
+			System.out.println("entering into available cars");
 		    model.put("car", carService.totalCarsDetails());
 		} catch(UserDefinedException e) {
 			e.printStackTrace();

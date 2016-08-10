@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.i2i.model.Car;
@@ -19,11 +20,11 @@ import com.i2i.model.Car;
  *
  */
 @Entity
-@Table(name = "Make")
+@Table(name="Make")
 public class Make {
 	
 	@Id
-	
+	@GeneratedValue
 	@Column(name="id")
 	private int id;
 	
@@ -33,6 +34,7 @@ public class Make {
 	@Column(name="rate")
 	private int rate;
 	
+	@OneToMany(mappedBy="make")
     private Set<Car> cars = new HashSet<Car>();
 
 	/**

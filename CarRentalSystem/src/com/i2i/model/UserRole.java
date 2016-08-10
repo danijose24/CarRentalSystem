@@ -3,8 +3,22 @@
  */
 package com.i2i.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "UserRole")
 public class UserRole {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "userId")
 	private int userId;
+	
+	@Column(name = "roleId")
 	private int roleId;
 	
 	public UserRole() {}

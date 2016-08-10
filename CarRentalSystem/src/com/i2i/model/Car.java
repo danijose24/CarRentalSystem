@@ -7,20 +7,48 @@ import java.sql.Time;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.i2i.model.Booking;
 /**
  * @author sudhakar
  *
  */
+
+@Entity
+@Table(name = "Car")
 public class Car {
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "id")
 	private int id;
+	
+	@Column(name="carType")
 	private int carType;
+	
+	@Column(name="carNumber")
 	private String carNumber;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="makeId")
 	private Make make;
+	
+	@Column(name="imageUrl")
 	private String imageUrl;
-    private Time   createdAt; 
+	
+	@Column(name="createdAt")
+    private Time createdAt;
+	
+	@OneToMany(mappedBy="car")
     private Set<Booking> bookings = new HashSet<Booking>();
 
 	/**

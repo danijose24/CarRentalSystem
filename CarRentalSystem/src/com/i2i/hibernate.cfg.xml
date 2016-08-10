@@ -13,10 +13,10 @@
         <property name="hibernate.connection.password">root</property>
 
         <!-- List of XML mapping files -->
-        <mapping resource="com/i2i/Role.hbm.xml"/>
-        <mapping resource="com/i2i/User.hbm.xml"/>
-        <mapping resource="com/i2i/Booking.hbm.xml"/>
-        <mapping resource="com/i2i/Car.hbm.xml"/>
-        <mapping resource="com/i2i/Make.hbm.xml"/>
+        <mapping class="com.i2i.model.Role"/>
+        <mapping class="com.i2i.model.User"/>
+        <mapping class="com.i2i.model.Booking"/>
+        <mapping class="com.i2i.model.Car"/>
+        <mapping class="com.i2i.model.Make"/>
     </session-factory>
 </hibernate-configuration>

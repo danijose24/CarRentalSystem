@@ -1,5 +1,6 @@
 package com.i2i.dao;
 
+import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
@@ -32,7 +33,7 @@ public class GenericDao {
     public static void getConnction() {
         try {
             System.out.println(sessionFactory);
-            sessionFactory = new Configuration().configure("com/i2i/hibernate.cfg.xml").buildSessionFactory();
+            sessionFactory = new AnnotationConfiguration().configure("com/i2i/hibernate.cfg.xml").buildSessionFactory();
             System.out.println(sessionFactory);
         } catch (HibernateException ex) { 
             System.out.println("Failed to Create SessionFactory object." + ex);

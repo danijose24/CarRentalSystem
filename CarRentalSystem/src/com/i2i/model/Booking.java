@@ -5,17 +5,46 @@ package com.i2i.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 /**
  * @author sudhakar
  *
  */
+@Entity
+@Table(name = "Booking")
 public class Booking {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="pickupDate")
 	private Date pickupDate;
+	
+	@Column(name="dropDate")
 	private Date dropDate;
+	
+	@Column(name="amount")
 	private int amount;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="userId")
 	private User user;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="carId")
 	private Car car;
+	
+	@Column(name="address")
 	private String address;
 	/**
 	 * @param id

@@ -1,45 +1,51 @@
 package com.i2i.model;
 
-
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.HashSet;
+
 @Entity
 @Table(name = "User")
 public class User {
 	
 	@Id
 	@GeneratedValue
-	@Column(name = "id")
+	@Column(name="id")
     private int id;
 	
-	@Column(name = "name")
+	@Column(name="name")
     private String name;
 	
-	@Column(name = "phoneNumber")
+	@Column(name="phoneNumber")
     private String phoneNumber;
 	
-    @Column(name = "email")
+    @Column(name="email")
     private String email;
     
-    @Column(name = "password")
+    @Column(name="password")
     private String password;
     
-    @Column(name = "address")
+    @Column(name="address")
     private String address;
     
-    @Column(name = "createdAt")
+    @Column(name="createdAt")
     private Timestamp createdAt;
     
+    @OneToMany(mappedBy="user")
     private Set<Booking> bookings = new HashSet<Booking>();
+    
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Role> roles = new HashSet<Role>();
 
     /**

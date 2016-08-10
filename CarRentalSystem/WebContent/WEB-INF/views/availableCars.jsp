@@ -41,8 +41,7 @@
       </div><!--close menubar-->	
     </nav>	
     
-	<div id="site_content">		
-
+	<div id="site_content">
       <div class="slideshow">
 	    <ul class="slideshow">
           <li class="show"><img width="940" height="300" src="images/car1.jpg" alt="&quot;Happy Journy With Us&quot;" /></li>
